@@ -1,0 +1,480 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--
+        Vector mock-ups of the real controls, shown inside the help window.
+
+        Two rules keep these illustrations honest:
+        * Anything that is real interface text uses {DynamicResource}, so a mock-up follows the
+          active language and can never drift away from the label it depicts.
+        * Sample file names ("IMG_0021.jpg") are example data, not interface text, so they stay
+          literal and are deliberately not translated.
+
+        Every brush below exists in both themes, and the layouts are grid based so the whole
+        illustration mirrors correctly for Persian and Arabic.
+    -->
+
+    <!-- ============ 1. Folder ============ -->
+    <DataTemplate x:Key="Mockup.Browse">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource Section.Folder}"
+                           FontSize="11"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource Brush.TextSecondary}"
+                           Margin="0,0,0,8" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0"
+                            Height="32"
+                            CornerRadius="8"
+                            Background="{DynamicResource Brush.Card}"
+                            BorderBrush="{DynamicResource Brush.ControlBorder}"
+                            BorderThickness="1"
+                            Padding="10,0"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="D:\Photos\Trip"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource Brush.TextPrimary}"
+                                   VerticalAlignment="Center"
+                                   TextTrimming="CharacterEllipsis" />
+                    </Border>
+                    <Border Grid.Column="1"
+                            Margin="8,0,0,0"
+                            Padding="12,6"
+                            CornerRadius="8"
+                            Background="{DynamicResource Brush.ControlHover}"
+                            BorderBrush="{DynamicResource Brush.ControlBorder}"
+                            BorderThickness="1"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="{DynamicResource Folder.Browse}"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource Brush.TextPrimary}" />
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- ============ 2. Naming pattern ============ -->
+    <DataTemplate x:Key="Mockup.Pattern">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource Section.Naming}"
+                           FontSize="11"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource Brush.TextSecondary}"
+                           Margin="0,0,0,8" />
+
+                <Border Background="{DynamicResource Brush.Card}"
+                        CornerRadius="10"
+                        Padding="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0"
+                                Background="{DynamicResource Brush.Accent}"
+                                CornerRadius="8"
+                                Padding="0,6">
+                            <TextBlock Text="{DynamicResource Naming.PresetImage}"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.TextOnAccent}"
+                                       TextAlignment="Center" />
+                        </Border>
+                        <TextBlock Grid.Column="1"
+                                   Text="{DynamicResource Naming.PresetFile}"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource Brush.TextSecondary}"
+                                   TextAlignment="Center"
+                                   VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2"
+                                   Text="{DynamicResource Naming.PresetCustom}"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource Brush.TextSecondary}"
+                                   TextAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+
+                <TextBlock Text="{DynamicResource Naming.CustomPrefix}"
+                           FontSize="11"
+                           Foreground="{DynamicResource Brush.TextSecondary}"
+                           Margin="0,12,0,6" />
+                <Border Background="{DynamicResource Brush.AccentSoft}"
+                        CornerRadius="8"
+                        Padding="10,7"
+                        HorizontalAlignment="Left">
+                    <TextBlock Text="rf 1.jpg"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource Brush.Accent}" />
+                </Border>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- ============ 3. Preview table ============ -->
+    <DataTemplate x:Key="Mockup.Preview">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource Section.Preview}"
+                           FontSize="11"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource Brush.TextSecondary}"
+                           Margin="0,0,0,8" />
+
+                <Border Background="{DynamicResource Brush.Card}"
+                        BorderBrush="{DynamicResource Brush.Divider}"
+                        BorderThickness="1"
+                        CornerRadius="9"
+                        ClipToBounds="True">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="{DynamicResource Preview.Original}"
+                                       FontSize="11"
+                                       Foreground="{DynamicResource Brush.TextSecondary}"
+                                       Margin="10,7" />
+                            <TextBlock Grid.Column="1"
+                                       Text="{DynamicResource Preview.NewName}"
+                                       FontSize="11"
+                                       Foreground="{DynamicResource Brush.TextSecondary}"
+                                       Margin="10,7" />
+                        </Grid>
+                        <Rectangle Height="1" Fill="{DynamicResource Brush.Divider}" />
+                        <Grid Background="{DynamicResource Brush.Row}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="IMG_0021.jpg"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.TextSecondary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                            <TextBlock Grid.Column="1"
+                                       Text="rf 1.jpg"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.TextPrimary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                        </Grid>
+                        <Grid Background="{DynamicResource Brush.RowAlt}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="IMG_0022.png"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.TextSecondary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                            <TextBlock Grid.Column="1"
+                                       Text="rf 2.png"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.TextPrimary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                        </Grid>
+                        <Grid Background="{DynamicResource Brush.Row}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0"
+                                       Text="notes.txt"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.TextSecondary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                            <TextBlock Grid.Column="1"
+                                       Text="rf 3.txt"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.TextPrimary}"
+                                       Margin="10,8"
+                                       TextTrimming="CharacterEllipsis" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- ============ 4. Action bar ============ -->
+    <DataTemplate x:Key="Mockup.Actions">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <Border Height="8"
+                        CornerRadius="4"
+                        Background="{DynamicResource Brush.ControlBorder}">
+                    <Border Width="120"
+                            HorizontalAlignment="Left"
+                            CornerRadius="4"
+                            Background="{DynamicResource Brush.Accent}" />
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+                    <Border Padding="14,7"
+                            CornerRadius="8"
+                            Background="{DynamicResource Brush.Card}"
+                            BorderBrush="{DynamicResource Brush.ControlBorder}"
+                            BorderThickness="1">
+                        <TextBlock Text="{DynamicResource Actions.Preview}"
+                                   FontSize="12"
+                                   Foreground="{DynamicResource Brush.TextPrimary}" />
+                    </Border>
+                    <Border Margin="8,0,0,0"
+                            Padding="14,7"
+                            CornerRadius="8"
+                            Background="{DynamicResource Brush.Accent}">
+                        <TextBlock Text="{DynamicResource Actions.Randomize}"
+                                   FontSize="12"
+                                   FontWeight="SemiBold"
+                                   Foreground="{DynamicResource Brush.TextOnAccent}" />
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- ============ 5. Old name to new name ============ -->
+    <DataTemplate x:Key="Mockup.Rename">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <!-- The arrow is the only piece that must change hands with the reading direction. -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="26" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0"
+                               Text="IMG_0021.jpg"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.TextSecondary}"
+                               Margin="0,4" />
+                    <TextBlock Grid.Row="0" Grid.Column="1"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,4"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.Accent}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="&#x2192;" />
+                                <Style.Triggers>
+                                    <!-- FlowDirection is inherited, so the arrow also reacts to a live language switch. -->
+                                    <Trigger Property="FlowDirection" Value="RightToLeft">
+                                        <Setter Property="Text" Value="&#x2190;" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="2"
+                               Text="rf 1.jpg"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource Brush.TextPrimary}"
+                               Margin="0,4" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                               Text="holiday photo.png"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.TextSecondary}"
+                               Margin="0,4" />
+                    <TextBlock Grid.Row="1" Grid.Column="1"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,4"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.Accent}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="&#x2192;" />
+                                <Style.Triggers>
+                                    <!-- FlowDirection is inherited, so the arrow also reacts to a live language switch. -->
+                                    <Trigger Property="FlowDirection" Value="RightToLeft">
+                                        <Setter Property="Text" Value="&#x2190;" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="2"
+                               Text="holiday 1.png"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource Brush.TextPrimary}"
+                               Margin="0,4" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0"
+                               Text="report.pdf"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.TextSecondary}"
+                               Margin="0,4" />
+                    <TextBlock Grid.Row="2" Grid.Column="1"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="0,4"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.Accent}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Text" Value="&#x2192;" />
+                                <Style.Triggers>
+                                    <!-- FlowDirection is inherited, so the arrow also reacts to a live language switch. -->
+                                    <Trigger Property="FlowDirection" Value="RightToLeft">
+                                        <Setter Property="Text" Value="&#x2190;" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="2"
+                               Text="report 1.pdf"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="{DynamicResource Brush.TextPrimary}"
+                               Margin="0,4" />
+                </Grid>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+    <!-- ============ 6. Undo ============ -->
+    <DataTemplate x:Key="Mockup.Undo">
+        <Border Background="{DynamicResource Brush.Control}"
+                BorderBrush="{DynamicResource Brush.ControlBorder}"
+                BorderThickness="1"
+                CornerRadius="10"
+                Padding="14">
+            <StackPanel>
+                <Border HorizontalAlignment="Left"
+                        Padding="12,6"
+                        CornerRadius="8"
+                        Background="{DynamicResource Brush.ControlHover}">
+                    <TextBlock Text="{DynamicResource Actions.Undo}"
+                               FontSize="12"
+                               Foreground="{DynamicResource Brush.TextPrimary}" />
+                </Border>
+
+                <Border Margin="0,12,0,0"
+                        Background="{DynamicResource Brush.SuccessSoft}"
+                        CornerRadius="9"
+                        Padding="10,8">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="26" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0"
+                                       Text="rf 1.jpg"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.Success}" />
+                            <TextBlock Grid.Row="0" Grid.Column="1"
+                                       TextAlignment="Center"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.Success}">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="&#x2192;" />
+                                        <Style.Triggers>
+                                            <Trigger Property="FlowDirection" Value="RightToLeft">
+                                                <Setter Property="Text" Value="&#x2190;" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Grid.Row="0" Grid.Column="2"
+                                       Text="IMG_0021.jpg"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.Success}"
+                                       TextTrimming="CharacterEllipsis" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0"
+                                       Text="rf 2.png"
+                                       FontSize="12"
+                                       FontWeight="SemiBold"
+                                       Foreground="{DynamicResource Brush.Success}"
+                                       Margin="0,4,0,0" />
+                            <TextBlock Grid.Row="1" Grid.Column="1"
+                                       TextAlignment="Center"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.Success}"
+                                       Margin="0,4,0,0">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="&#x2192;" />
+                                        <Style.Triggers>
+                                            <Trigger Property="FlowDirection" Value="RightToLeft">
+                                                <Setter Property="Text" Value="&#x2190;" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="2"
+                                       Text="holiday photo.png"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource Brush.Success}"
+                                       Margin="0,4,0,0"
+                                       TextTrimming="CharacterEllipsis" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>

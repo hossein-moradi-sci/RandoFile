@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Surfaces -->
+    <SolidColorBrush x:Key="Brush.Window" Color="#141821" />
+    <SolidColorBrush x:Key="Brush.Header" Color="#1B2130" />
+    <SolidColorBrush x:Key="Brush.Card" Color="#1B2130" />
+    <SolidColorBrush x:Key="Brush.CardBorder" Color="#2A3244" />
+    <SolidColorBrush x:Key="Brush.Divider" Color="#262E3E" />
+
+    <!-- Text -->
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="#EDF1F8" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="#93A1B8" />
+    <SolidColorBrush x:Key="Brush.TextOnAccent" Color="#FFFFFF" />
+
+    <!-- Accent -->
+    <SolidColorBrush x:Key="Brush.Accent" Color="#4C86FF" />
+    <SolidColorBrush x:Key="Brush.AccentHover" Color="#6A9BFF" />
+    <SolidColorBrush x:Key="Brush.AccentPressed" Color="#3B72E8" />
+    <SolidColorBrush x:Key="Brush.AccentSoft" Color="#23304B" />
+
+    <!-- Controls -->
+    <SolidColorBrush x:Key="Brush.Control" Color="#232B3C" />
+    <SolidColorBrush x:Key="Brush.ControlHover" Color="#2C3648" />
+    <SolidColorBrush x:Key="Brush.ControlBorder" Color="#37415A" />
+    <SolidColorBrush x:Key="Brush.ControlDisabled" Color="#1E2634" />
+    <SolidColorBrush x:Key="Brush.TextDisabled" Color="#5E6A80" />
+
+    <!-- States -->
+    <SolidColorBrush x:Key="Brush.Success" Color="#4ADE80" />
+    <SolidColorBrush x:Key="Brush.SuccessSoft" Color="#17301F" />
+    <SolidColorBrush x:Key="Brush.Danger" Color="#FF6B6B" />
+    <SolidColorBrush x:Key="Brush.DangerSoft" Color="#3A1E1E" />
+    <SolidColorBrush x:Key="Brush.Warning" Color="#F5C84C" />
+    <SolidColorBrush x:Key="Brush.WarningSoft" Color="#3A2F15" />
+    <SolidColorBrush x:Key="Brush.Info" Color="#7FA9FF" />
+    <SolidColorBrush x:Key="Brush.InfoSoft" Color="#1F2A44" />
+
+    <!-- Lists -->
+    <SolidColorBrush x:Key="Brush.Row" Color="#1B2130" />
+    <SolidColorBrush x:Key="Brush.RowAlt" Color="#1F2637" />
+    <SolidColorBrush x:Key="Brush.RowHover" Color="#27314A" />
+    <SolidColorBrush x:Key="Brush.Selection" Color="#2E3C5C" />
+
+</ResourceDictionary>

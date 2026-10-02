@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- ===== Application ===== -->
+    <sys:String x:Key="Header.Settings">الإعدادات</sys:String>
+    <sys:String x:Key="Header.About">حول</sys:String>
+    <sys:String x:Key="Header.Help">مساعدة</sys:String>
+
+    <!-- ===== Sections ===== -->
+    <sys:String x:Key="Section.Folder">المجلد</sys:String>
+    <sys:String x:Key="Section.Naming">نمط التسمية</sys:String>
+    <sys:String x:Key="Section.Preview">المعاينة</sys:String>
+
+    <!-- ===== Folder ===== -->
+    <sys:String x:Key="Folder.Placeholder">اختر المجلد الذي يحتوي على ملفاتك</sys:String>
+    <sys:String x:Key="Folder.Browse">استعراض…</sys:String>
+    <sys:String x:Key="Folder.Open">فتح في مستكشف الملفات</sys:String>
+    <sys:String x:Key="Folder.NoFolder">لم يتم اختيار مجلد</sys:String>
+    <sys:String x:Key="Folder.FilesFound">تم العثور على {0} ملفًا</sys:String>
+
+    <!-- ===== Naming ===== -->
+    <sys:String x:Key="Naming.Preset">نمط جاهز</sys:String>
+    <sys:String x:Key="Naming.PresetImage">صورة</sys:String>
+    <sys:String x:Key="Naming.PresetFile">ملف</sys:String>
+    <sys:String x:Key="Naming.PresetCustom">مخصص</sys:String>
+    <sys:String x:Key="Naming.CustomPrefix">بادئة مخصصة</sys:String>
+    <sys:String x:Key="Naming.CustomPrefixHint">مثال: رحلة</sys:String>
+    <sys:String x:Key="Naming.StartNumber">رقم البداية</sys:String>
+    <sys:String x:Key="Naming.Digits">عدد الأرقام</sys:String>
+    <sys:String x:Key="Naming.DigitsHint">٠ يعني بدون أصفار بادئة</sys:String>
+    <sys:String x:Key="Naming.Example">مثال: {0}</sys:String>
+
+    <!-- ===== Actions ===== -->
+    <sys:String x:Key="Actions.Preview">معاينة</sys:String>
+    <sys:String x:Key="Actions.Randomize">تعشير عشوائي</sys:String>
+    <sys:String x:Key="Actions.Undo">التراجع عن آخر إعادة تسمية</sys:String>
+    <sys:String x:Key="Actions.Cancel">إلغاء</sys:String>
+    <sys:String x:Key="Actions.Close">إغلاق</sys:String>
+    <sys:String x:Key="Actions.Save">حفظ</sys:String>
+    <sys:String x:Key="Actions.CheckNow">التحقق من التحديثات</sys:String>
+    <sys:String x:Key="Actions.OpenReleases">فتح صفحة الإصدارات</sys:String>
+
+    <!-- ===== Preview ===== -->
+    <sys:String x:Key="Preview.Original">الاسم الحالي</sys:String>
+    <sys:String x:Key="Preview.NewName">الاسم الجديد</sys:String>
+    <sys:String x:Key="Preview.Empty">لا يوجد ما يمكن معاينته بعد</sys:String>
+    <sys:String x:Key="Preview.EmptyHint">اختر مجلدًا ونمطًا ثم اضغط على «معاينة».</sys:String>
+    <sys:String x:Key="Preview.Total">{0} ملفًا</sys:String>
+    <sys:String x:Key="Preview.Changes">{0} بحاجة إلى إعادة تسمية</sys:String>
+    <sys:String x:Key="Preview.Conflicts">{0} تعارض</sys:String>
+    <sys:String x:Key="Preview.Truncated">يتم عرض أول {0} صفًا فقط.</sys:String>
+
+    <!-- ===== Status ===== -->
+    <sys:String x:Key="Status.Ready">جاهز.</sys:String>
+    <sys:String x:Key="Status.Scanning">جارٍ فحص المجلد…</sys:String>
+    <sys:String x:Key="Status.Busy">جارٍ العمل…</sys:String>
+    <sys:String x:Key="Status.BuildingPreview">جارٍ إنشاء المعاينة…</sys:String>
+    <sys:String x:Key="Status.Renaming">جارٍ إعادة تسمية {0} ملفًا…</sys:String>
+    <sys:String x:Key="Status.Completed">تمت إعادة تسمية {0} ملفًا في {1} ثانية.</sys:String>
+    <sys:String x:Key="Status.Undone">تمت استعادة الأسماء الأصلية لـ {0} ملفًا.</sys:String>
+    <sys:String x:Key="Status.Failed">فشلت العملية. لم يبقَ أي ملف باسم جديد.</sys:String>
+    <sys:String x:Key="Status.Cancelled">تم الإلغاء واستُعيدت جميع الأسماء الأصلية.</sys:String>
+    <sys:String x:Key="Status.Conflicts">المعاينة جاهزة، لكن {0} اسمًا متعارض.</sys:String>
+    <sys:String x:Key="Status.PreviewReady">المعاينة جاهزة: سيتم إعادة تسمية {0} ملفًا.</sys:String>
+    <sys:String x:Key="Status.NothingToDo">جميع الملفات تحمل الاسم الهدف بالفعل.</sys:String>
+
+    <!-- ===== Messages ===== -->
+    <sys:String x:Key="Msg.InfoTitle">معلومة</sys:String>
+    <sys:String x:Key="Msg.SuccessTitle">تم</sys:String>
+    <sys:String x:Key="Msg.ErrorTitle">خطأ</sys:String>
+    <sys:String x:Key="Msg.WarningTitle">تنبيه</sys:String>
+    <sys:String x:Key="Msg.NoFolder">يرجى اختيار مجلد أولاً.</sys:String>
+    <sys:String x:Key="Msg.FolderMissing">هذا المجلد لم يعد موجودًا.</sys:String>
+    <sys:String x:Key="Msg.NoFiles">لم يتم العثور على أي ملف في هذا المجلد.</sys:String>
+    <sys:String x:Key="Msg.ConflictsBody">هذه الأسماء الهدف متعارضة، لذلك لم تتم إعادة تسمية أي ملف:
+{0}
+
+أعد تسمية الملفات المذكورة أو انقلها ثم حاول مرة أخرى.</sys:String>
+    <sys:String x:Key="Msg.ConfirmTitle">تأكيد إعادة التسمية</sys:String>
+    <sys:String x:Key="Msg.ConfirmBody">سيتم إعادة تسمية {0} ملفًا في
+{1}
+هل تريد المتابعة؟</sys:String>
+    <sys:String x:Key="Msg.RenameDone">تمت إعادة تسمية {0} ملفًا بنجاح في {1} ثانية.</sys:String>
+    <sys:String x:Key="Msg.UndoTitle">التراجع عن آخر إعادة تسمية</sys:String>
+    <sys:String x:Key="Msg.UndoBody">هل تريد استعادة الأسماء الأصلية لآخر {0} ملفًا؟</sys:String>
+    <sys:String x:Key="Msg.UndoNothing">لا يوجد شيء للتراجع عنه بعد.</sys:String>
+    <sys:String x:Key="Msg.UndoFailed">لم يكتمل التراجع. {0}</sys:String>
+    <sys:String x:Key="Msg.NoPreview">اضغط على «معاينة» أولاً للتحقق من الخطة.</sys:String>
+
+    <!-- ===== Settings ===== -->
+    <sys:String x:Key="Settings.Title">الإعدادات</sys:String>
+    <sys:String x:Key="Settings.Language">اللغة</sys:String>
+    <sys:String x:Key="Settings.LanguageHint">الفارسية والعربية تحوّلان الواجهة بالكامل إلى الاتجاه من اليمين إلى اليسار.</sys:String>
+    <sys:String x:Key="Settings.Appearance">المظهر</sys:String>
+    <sys:String x:Key="Settings.Theme">النمط</sys:String>
+    <sys:String x:Key="Settings.ThemeLight">فاتح</sys:String>
+    <sys:String x:Key="Settings.ThemeDark">داكن</sys:String>
+    <sys:String x:Key="Settings.ThemeSystem">حسب ويندوز</sys:String>
+    <sys:String x:Key="Settings.Behavior">السلوك</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfolders">تضمين المجلدات الفرعية</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfoldersHint">تُعاد تسمية ملفات المجلدات الفرعية داخل مجلدها نفسه.</sys:String>
+    <sys:String x:Key="Settings.Updates">التحديثات</sys:String>
+    <sys:String x:Key="Settings.CheckUpdates">التحقق من الإصدارات الجديدة على GitHub عند التشغيل</sys:String>
+    <sys:String x:Key="Settings.CheckUpdatesHint">يستخدم الإصدارات العامة لمستودع المشروع.</sys:String>
+    <sys:String x:Key="Settings.CurrentVersion">الإصدار المثبَّت: {0}</sys:String>
+    <sys:String x:Key="Settings.NewVersion">الإصدار {0} متاح الآن.</sys:String>
+    <sys:String x:Key="Settings.UpToDate">أنت تستخدم أحدث إصدار.</sys:String>
+    <sys:String x:Key="Settings.UpdateFailed">تعذّر الوصول إلى GitHub. تحقّق من اتصالك ثم أعد المحاولة.</sys:String>
+    <sys:String x:Key="Settings.Checking">جارٍ التحقق من التحديثات…</sys:String>
+
+    <!-- ===== Help ===== -->
+    <sys:String x:Key="Help.Title">مساعدة</sys:String>
+    <sys:String x:Key="Help.Subtitle">كيف تخلط أسماء الملفات في مجلد، خطوة بخطوة.</sys:String>
+    <sys:String x:Key="Help.Tab.Start">البداية السريعة</sys:String>
+    <sys:String x:Key="Help.Tab.Naming">نمط التسمية</sys:String>
+    <sys:String x:Key="Help.Tab.Safety">اختصارات لوحة المفاتيح والسلامة</sys:String>
+    <sys:String x:Key="Help.Tab.Faq">أسئلة شائعة</sys:String>
+
+    <sys:String x:Key="Help.Step1.Title">١. اختر مجلدًا</sys:String>
+    <sys:String x:Key="Help.Step1.Body">اضغط زر «استعراض…» ثم اختر المجلد الذي يحتوي ملفاتك. تبقى المجلدات الفرعية دون مساس ما لم تفعّل «تضمين المجلدات الفرعية» في الإعدادات.</sys:String>
+    <sys:String x:Key="Help.Step2.Title">٢. اختر النمط</sys:String>
+    <sys:String x:Key="Help.Step2.Body">اختر «صورة» أو «ملف» أو «مخصص»، ثم حدّد رقم البداية وعدد الأرقام، وفي وضع «مخصص» اكتب بادئة. يعرض الشريط الأزرق دائمًا مثالًا حيًّا للنتيجة.</sys:String>
+    <sys:String x:Key="Help.Step3.Title">٣. عاين النتيجة</sys:String>
+    <sys:String x:Key="Help.Step3.Body">تبني المعاينة جدولًا كاملًا من الأسماء القديمة إلى الجديدة لتفحصه قبل حدوث أي شيء.</sys:String>
+    <sys:String x:Key="Help.Step4.Title">٤. الترجيش العشوائي</sys:String>
+    <sys:String x:Key="Help.Step4.Body">بعد تأكيدك، تُعاد تسمية الملفات واحدًا تلو الآخر بينما يمتلئ شريط التقدم. ويتيح لك «التراجع عن آخر إعادة تسمية» إرجاع الدفعة نفسها لاحقًا.</sys:String>
+    <sys:String x:Key="Help.Tip.Preview">المعاينة لا تغيّر أي ملف؛ إنها تقرأ الأسماء فقط.</sys:String>
+
+    <sys:String x:Key="Help.Naming.Presets.Title">الأنماط الثلاثة الجاهزة</sys:String>
+    <sys:String x:Key="Help.Naming.Presets.Body">ينتج نمط «صورة» أسماء مثل Image 1.jpg، وينتج نمط «ملف» أسماء مثل File 1.jpg. أما نمط «مخصص» فيتيح لك كتابة بادئتك، مثل Holiday 1.jpg. وكلمة النمط نفسها لا تُترجم أبدًا، لذلك يبقى اسم الملف واحدًا في كل اللغات.</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Title">البادئة المخصصة</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Body">توضع البادئة أمام الرقم. اتركها فارغة ليظهر الرقم وحده مثل 1.jpg. وتُحذف تلقائيًا الأحرف التي لا يسمح ويندوز باستخدامها في اسم الملف.</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Title">رقم البداية وعدد الأرقام</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Body">يزيح رقم البداية التسلسل كله: البداية 10 مع 3 أرقام تعطي 010 و011 و012. واضبط عدد الأرقام على 0 لإزالة الأصفار البادئة.</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Title">الامتداد محفوظ</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Body">يُعاد بناء ما قبل النقطة فقط، فتبقى ملف jpg ملف jpg. والملف الذي لا امتداد له يبقى بلا امتداد.</sys:String>
+
+    <sys:String x:Key="Help.Safety.Atomic.Title">الكل أو لا شيء</sys:String>
+    <sys:String x:Key="Help.Safety.Atomic.Body">تمر كل إعادة تسمية باسم مؤقت مخفي. وإن فشلت أي خطوة، تُعاد الملفات التي لُمست إلى أسماءها الأصلية، فلا تترك أي عملية المجلد نصف مُعاد التسمية.</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Title">لا استبدال لأي ملف</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Body">حين ينتهي ملفان إلى الاسم نفسه، تُبلّغ المعاينة عن التعارض ولا يُعاد تسمية أي ملف حتى تحلّ المشكلة.</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Title">الإلغاء آمن</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Body">يمكنك الضغط على «إلغاء» أثناء عملية طويلة. فالملفات التي أُعيدت تسميتها حتى تلك اللحظة تُستعاد قبل توقف العملية.</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Title">التراجع عن الدفعة الأخيرة</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Body">بعد عملية ناجحة، يعيد «التراجع عن آخر إعادة تسمية» الأسماء الأصلية لتلك العملية، وتلك العملية وحدها.</sys:String>
+
+    <sys:String x:Key="Help.ShortcutsTitle">لوحة المفاتيح</sys:String>
+    <sys:String x:Key="Help.Key.F1">يفتح نافذة المساعدة هذه، من النافذة الرئيسية ومن الإعدادات.</sys:String>
+    <sys:String x:Key="Help.Key.Enter">يُشغّل الزر الذي عليه التركيز، ويؤكّد مربع الرسالة.</sys:String>
+    <sys:String x:Key="Help.Key.Tab">ينقل التركيز من عنصر إلى العنصر التالي.</sys:String>
+
+    <sys:String x:Key="Help.Faq1.Q">ملف ما الاحتفظ باسمه القديم. لماذا؟</sys:String>
+    <sys:String x:Key="Help.Faq1.A">إذا أسند الترشيح إلى الملف الاسم الذي يحمله أصلًا، فلا شيء يحتاج إلى كتابة؛ لذلك تحسبه المعاينة دون تغيير ولا تدرجه ضمن الصفوف المتغيّرة.</sys:String>
+    <sys:String x:Key="Help.Faq2.Q">لماذا أرى ملفات أقل مما في مستكشف ويندوز؟</sys:String>
+    <sys:String x:Key="Help.Faq2.A">تُتخطى الملفات المخفية وملفات النظام، ولا تُدرَج المجلدات الفرعية إلا عندما تطلبها من الإعدادات.</sys:String>
+    <sys:String x:Key="Help.Faq3.Q">ما ملف ‎.rf_tmp_‎؟</sys:String>
+    <sys:String x:Key="Help.Faq3.A">اسم مؤقت يُستخدم أثناء إعادة التسمية فقط. إنه مخفي ويتجاهله الماسح، لذلك لا يُعاد ترتيب بقايا عملية توقفت في منتصفها من قبل.</sys:String>
+
+    <!-- ===== About ===== -->
+    <sys:String x:Key="About.Title">حول</sys:String>
+    <sys:String x:Key="About.Creator">المُنشئ</sys:String>
+    <sys:String x:Key="About.Profession">المهنة</sys:String>
+    <sys:String x:Key="About.Field">المجال</sys:String>
+    <sys:String x:Key="About.ProfessionValue">تقني هندسة الطاقة الكهربائية</sys:String>
+    <sys:String x:Key="About.FieldValue">هندسة الطاقة الكهربائية، تطوير البرمجيات وتطبيقات الويب، تصميم المواقع، إدارة وتخطيط المشاريع</sys:String>
+    <sys:String x:Key="About.Version">الإصدار</sys:String>
+    <sys:String x:Key="About.Repository">المستودع</sys:String>
+    <sys:String x:Key="About.Copyright">حقوق النشر © {0} {1}. صدر بموجب رخصة MIT.</sys:String>
+
+</ResourceDictionary>

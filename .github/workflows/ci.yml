@@ -1,0 +1,98 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore RandoFile.sln
+
+      - name: Build
+        run: dotnet build RandoFile.sln -c Release --no-restore
+
+      - name: Test
+        run: dotnet test RandoFile.sln -c Release --no-build --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: '**/TestResults/*.trx'
+          if-no-files-found: ignore
+
+  publish:
+    name: Publish executable
+    runs-on: windows-latest
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish single-file self-contained app
+        run: >
+          dotnet publish src/RandoFile.App/RandoFile.App.csproj
+          -c Release -r win-x64 --self-contained true
+          -p:PublishSingleFile=true
+          -p:EnableCompressionInSingleFile=true
+          -p:DebugType=None
+          -o dist/win-x64
+
+      # The asset name keeps the tag exactly as pushed (e.g. RandoFile-v1.0.0-win-x64.zip) so the
+      # release step below can reference it without re-deriving the version.
+      - name: Package
+        shell: pwsh
+        run: |
+          $zip = "RandoFile-$env:GITHUB_REF_NAME-win-x64.zip"
+          Compress-Archive -Path dist/win-x64/* -DestinationPath $zip
+          Write-Host "ASSET=$zip"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: randofile-win-x64
+          path: '*.zip'
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          files: |
+            RandoFile-${{ github.ref_name }}-win-x64.zip
+            dist/win-x64/RandoFile.exe

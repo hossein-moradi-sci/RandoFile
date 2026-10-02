@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- ===== Application ===== -->
+    <sys:String x:Key="Header.Settings">Settings</sys:String>
+    <sys:String x:Key="Header.About">About</sys:String>
+    <sys:String x:Key="Header.Help">Help</sys:String>
+
+    <!-- ===== Sections ===== -->
+    <sys:String x:Key="Section.Folder">Folder</sys:String>
+    <sys:String x:Key="Section.Naming">Naming pattern</sys:String>
+    <sys:String x:Key="Section.Preview">Preview</sys:String>
+
+    <!-- ===== Folder ===== -->
+    <sys:String x:Key="Folder.Placeholder">Choose the folder that holds your files</sys:String>
+    <sys:String x:Key="Folder.Browse">Browse…</sys:String>
+    <sys:String x:Key="Folder.Open">Open in Explorer</sys:String>
+    <sys:String x:Key="Folder.NoFolder">No folder selected</sys:String>
+    <sys:String x:Key="Folder.FilesFound">{0} files found</sys:String>
+
+    <!-- ===== Naming ===== -->
+    <sys:String x:Key="Naming.Preset">Preset</sys:String>
+    <sys:String x:Key="Naming.PresetImage">Image</sys:String>
+    <sys:String x:Key="Naming.PresetFile">File</sys:String>
+    <sys:String x:Key="Naming.PresetCustom">Custom</sys:String>
+    <sys:String x:Key="Naming.CustomPrefix">Custom prefix</sys:String>
+    <sys:String x:Key="Naming.CustomPrefixHint">For example: Holiday</sys:String>
+    <sys:String x:Key="Naming.StartNumber">Start number</sys:String>
+    <sys:String x:Key="Naming.Digits">Number of digits</sys:String>
+    <sys:String x:Key="Naming.DigitsHint">0 = no leading zeros</sys:String>
+    <sys:String x:Key="Naming.Example">Example: {0}</sys:String>
+
+    <!-- ===== Actions ===== -->
+    <sys:String x:Key="Actions.Preview">Preview</sys:String>
+    <sys:String x:Key="Actions.Randomize">Randomize</sys:String>
+    <sys:String x:Key="Actions.Undo">Undo last rename</sys:String>
+    <sys:String x:Key="Actions.Cancel">Cancel</sys:String>
+    <sys:String x:Key="Actions.Close">Close</sys:String>
+    <sys:String x:Key="Actions.Save">Save</sys:String>
+    <sys:String x:Key="Actions.CheckNow">Check for updates</sys:String>
+    <sys:String x:Key="Actions.OpenReleases">Open release page</sys:String>
+
+    <!-- ===== Preview ===== -->
+    <sys:String x:Key="Preview.Original">Current name</sys:String>
+    <sys:String x:Key="Preview.NewName">New name</sys:String>
+    <sys:String x:Key="Preview.Empty">Nothing to preview yet</sys:String>
+    <sys:String x:Key="Preview.EmptyHint">Pick a folder, choose a pattern and press Preview.</sys:String>
+    <sys:String x:Key="Preview.Total">{0} files</sys:String>
+    <sys:String x:Key="Preview.Changes">{0} to rename</sys:String>
+    <sys:String x:Key="Preview.Conflicts">{0} conflicts</sys:String>
+    <sys:String x:Key="Preview.Truncated">Showing the first {0} rows.</sys:String>
+
+    <!-- ===== Status ===== -->
+    <sys:String x:Key="Status.Ready">Ready.</sys:String>
+    <sys:String x:Key="Status.Scanning">Scanning the folder…</sys:String>
+    <sys:String x:Key="Status.Busy">Working…</sys:String>
+    <sys:String x:Key="Status.BuildingPreview">Building the preview…</sys:String>
+    <sys:String x:Key="Status.Renaming">Renaming {0} files…</sys:String>
+    <sys:String x:Key="Status.Completed">{0} files renamed in {1} s.</sys:String>
+    <sys:String x:Key="Status.Undone">{0} files restored to their original names.</sys:String>
+    <sys:String x:Key="Status.Failed">The operation failed. No file was left renamed.</sys:String>
+    <sys:String x:Key="Status.Cancelled">Cancelled, all files were restored.</sys:String>
+    <sys:String x:Key="Status.Conflicts">Preview ready, but {0} names conflict.</sys:String>
+    <sys:String x:Key="Status.PreviewReady">Preview ready: {0} files will be renamed.</sys:String>
+    <sys:String x:Key="Status.NothingToDo">Every file already has the target name.</sys:String>
+
+    <!-- ===== Messages ===== -->
+    <sys:String x:Key="Msg.InfoTitle">Information</sys:String>
+    <sys:String x:Key="Msg.SuccessTitle">Done</sys:String>
+    <sys:String x:Key="Msg.ErrorTitle">Problem</sys:String>
+    <sys:String x:Key="Msg.WarningTitle">Warning</sys:String>
+    <sys:String x:Key="Msg.NoFolder">Please select a folder first.</sys:String>
+    <sys:String x:Key="Msg.FolderMissing">That folder no longer exists.</sys:String>
+    <sys:String x:Key="Msg.NoFiles">No file was found in that folder.</sys:String>
+    <sys:String x:Key="Msg.ConflictsBody">These target names would collide, so nothing was renamed:
+{0}
+
+Rename or move the listed files, then try again.</sys:String>
+    <sys:String x:Key="Msg.ConfirmTitle">Confirm the rename</sys:String>
+    <sys:String x:Key="Msg.ConfirmBody">{0} files in
+{1}
+will be renamed. Continue?</sys:String>
+    <sys:String x:Key="Msg.RenameDone">{0} files were renamed successfully in {1} s.</sys:String>
+    <sys:String x:Key="Msg.UndoTitle">Undo the last rename</sys:String>
+    <sys:String x:Key="Msg.UndoBody">Restore the original names of the last {0} files?</sys:String>
+    <sys:String x:Key="Msg.UndoNothing">There is nothing to undo yet.</sys:String>
+    <sys:String x:Key="Msg.UndoFailed">The undo could not be completed. {0}</sys:String>
+    <sys:String x:Key="Msg.NoPreview">Press Preview first so the plan can be checked.</sys:String>
+
+    <!-- ===== Settings ===== -->
+    <sys:String x:Key="Settings.Title">Settings</sys:String>
+    <sys:String x:Key="Settings.Language">Language</sys:String>
+    <sys:String x:Key="Settings.LanguageHint">Persian and Arabic switch the whole interface to right-to-left.</sys:String>
+    <sys:String x:Key="Settings.Appearance">Appearance</sys:String>
+    <sys:String x:Key="Settings.Theme">Theme</sys:String>
+    <sys:String x:Key="Settings.ThemeLight">Light</sys:String>
+    <sys:String x:Key="Settings.ThemeDark">Dark</sys:String>
+    <sys:String x:Key="Settings.ThemeSystem">Follow Windows</sys:String>
+    <sys:String x:Key="Settings.Behavior">Behaviour</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfolders">Include subfolders</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfoldersHint">Subfolder files are renamed inside their own folder.</sys:String>
+    <sys:String x:Key="Settings.Updates">Updates</sys:String>
+    <sys:String x:Key="Settings.CheckUpdates">Check GitHub for new versions at startup</sys:String>
+    <sys:String x:Key="Settings.CheckUpdatesHint">Uses the public releases of the project repository.</sys:String>
+    <sys:String x:Key="Settings.CurrentVersion">Installed version: {0}</sys:String>
+    <sys:String x:Key="Settings.NewVersion">Version {0} is available.</sys:String>
+    <sys:String x:Key="Settings.UpToDate">You are running the latest version.</sys:String>
+    <sys:String x:Key="Settings.UpdateFailed">Could not reach GitHub. Check your connection and try again.</sys:String>
+    <sys:String x:Key="Settings.Checking">Checking for updates…</sys:String>
+
+    <!-- ===== Help ===== -->
+    <sys:String x:Key="Help.Title">Help</sys:String>
+    <sys:String x:Key="Help.Subtitle">How to shuffle the files of a folder, step by step.</sys:String>
+    <sys:String x:Key="Help.Tab.Start">Getting started</sys:String>
+    <sys:String x:Key="Help.Tab.Naming">Naming pattern</sys:String>
+    <sys:String x:Key="Help.Tab.Safety">Shortcuts &amp; safety</sys:String>
+    <sys:String x:Key="Help.Tab.Faq">FAQ</sys:String>
+
+    <sys:String x:Key="Help.Step1.Title">1. Pick a folder</sys:String>
+    <sys:String x:Key="Help.Step1.Body">Press Browse and choose the folder that holds your files. Subfolders are left alone unless you turn on "Include subfolders" in Settings.</sys:String>
+    <sys:String x:Key="Help.Step2.Title">2. Choose a pattern</sys:String>
+    <sys:String x:Key="Help.Step2.Body">Pick Image, File or Custom, then set the start number, the digit count and, for Custom, a prefix. The blue strip always shows a live example.</sys:String>
+    <sys:String x:Key="Help.Step3.Title">3. Preview the result</sys:String>
+    <sys:String x:Key="Help.Step3.Body">Preview builds the complete old-name to new-name table so you can check it before anything happens.</sys:String>
+    <sys:String x:Key="Help.Step4.Title">4. Randomize</sys:String>
+    <sys:String x:Key="Help.Step4.Body">After you confirm, the files are renamed one by one while the progress bar fills up. Undo last rename puts that same batch back afterwards.</sys:String>
+    <sys:String x:Key="Help.Tip.Preview">Preview never changes a file. It only reads names.</sys:String>
+
+    <sys:String x:Key="Help.Naming.Presets.Title">The three presets</sys:String>
+    <sys:String x:Key="Help.Naming.Presets.Body">Image produces names like "Image 1.jpg" and File produces "File 1.jpg". Custom lets you type your own prefix, for example "Holiday 1.jpg". The preset word itself is never translated, so the file name stays the same in every language.</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Title">Custom prefix</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Body">The prefix sits in front of the number. Leave it empty for a bare number such as "1.jpg". Characters that Windows refuses in a file name are dropped for you.</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Title">Start number and digits</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Body">The start number shifts the whole sequence: a start of 10 with 3 digits gives 010, 011 and 012. Set the digits to 0 to drop the leading zeros.</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Title">The extension is kept</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Body">Only the part in front of the dot is rebuilt, so a .jpg stays a .jpg. A file that has no extension simply gets none.</sys:String>
+
+    <sys:String x:Key="Help.Safety.Atomic.Title">All or nothing</sys:String>
+    <sys:String x:Key="Help.Safety.Atomic.Body">Every rename travels through a hidden staging name. If one step fails, the files already touched are put back, so a run never leaves the folder half renamed.</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Title">Nothing is overwritten</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Body">When two files would end up with the same name, the preview reports the conflict and nothing is renamed until you resolve it.</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Title">Cancel is safe</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Body">You can press Cancel during a long run. The files already renamed are restored before the operation stops.</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Title">Undo the last batch</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Body">After a successful run, Undo last rename restores the original names of that run, and of that run only.</sys:String>
+
+    <sys:String x:Key="Help.ShortcutsTitle">Keyboard</sys:String>
+    <sys:String x:Key="Help.Key.F1">Opens this help window, from the main window and from Settings.</sys:String>
+    <sys:String x:Key="Help.Key.Enter">Triggers the button that has the focus, and confirms a message box.</sys:String>
+    <sys:String x:Key="Help.Key.Tab">Moves the focus from one control to the next.</sys:String>
+
+    <sys:String x:Key="Help.Faq1.Q">A file kept its old name. Why?</sys:String>
+    <sys:String x:Key="Help.Faq1.A">If the shuffle happened to hand a file the name it already had, there is nothing to write, so the preview counts it as unchanged and leaves it out of the change count.</sys:String>
+    <sys:String x:Key="Help.Faq2.Q">Why do I see fewer files than Explorer?</sys:String>
+    <sys:String x:Key="Help.Faq2.A">Hidden and system files are skipped, and subfolders are only included when you ask for them in Settings.</sys:String>
+    <sys:String x:Key="Help.Faq3.Q">What is a .rf_tmp_ file?</sys:String>
+    <sys:String x:Key="Help.Faq3.A">A staging name used only while a rename runs. It is hidden and the scanner skips it, so a leftover from an interrupted run is never renamed again.</sys:String>
+
+    <!-- ===== About ===== -->
+    <sys:String x:Key="About.Title">About</sys:String>
+    <sys:String x:Key="About.Creator">Creator</sys:String>
+    <sys:String x:Key="About.Profession">Profession</sys:String>
+    <sys:String x:Key="About.Field">Field</sys:String>
+    <sys:String x:Key="About.ProfessionValue">Electrical Power Engineering Technologist</sys:String>
+    <sys:String x:Key="About.FieldValue">Power Electrical Engineering, software &amp; web app developer, website designer, project management and planning</sys:String>
+    <sys:String x:Key="About.Version">Version</sys:String>
+    <sys:String x:Key="About.Repository">Repository</sys:String>
+    <sys:String x:Key="About.Copyright">Copyright © {0} {1}. Released under the MIT License.</sys:String>
+
+</ResourceDictionary>

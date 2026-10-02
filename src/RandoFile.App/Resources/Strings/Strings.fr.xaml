@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- ===== Application ===== -->
+    <sys:String x:Key="Header.Settings">Paramètres</sys:String>
+    <sys:String x:Key="Header.About">À propos</sys:String>
+    <sys:String x:Key="Header.Help">Aide</sys:String>
+
+    <!-- ===== Sections ===== -->
+    <sys:String x:Key="Section.Folder">Dossier</sys:String>
+    <sys:String x:Key="Section.Naming">Modèle de nommage</sys:String>
+    <sys:String x:Key="Section.Preview">Aperçu</sys:String>
+
+    <!-- ===== Folder ===== -->
+    <sys:String x:Key="Folder.Placeholder">Choisissez le dossier qui contient vos fichiers</sys:String>
+    <sys:String x:Key="Folder.Browse">Parcourir…</sys:String>
+    <sys:String x:Key="Folder.Open">Ouvrir dans l'Explorateur</sys:String>
+    <sys:String x:Key="Folder.NoFolder">Aucun dossier sélectionné</sys:String>
+    <sys:String x:Key="Folder.FilesFound">{0} fichiers trouvés</sys:String>
+
+    <!-- ===== Naming ===== -->
+    <sys:String x:Key="Naming.Preset">Préréglage</sys:String>
+    <sys:String x:Key="Naming.PresetImage">Image</sys:String>
+    <sys:String x:Key="Naming.PresetFile">Fichier</sys:String>
+    <sys:String x:Key="Naming.PresetCustom">Personnalisé</sys:String>
+    <sys:String x:Key="Naming.CustomPrefix">Préfixe personnalisé</sys:String>
+    <sys:String x:Key="Naming.CustomPrefixHint">Par exemple : Vacances</sys:String>
+    <sys:String x:Key="Naming.StartNumber">Numéro de départ</sys:String>
+    <sys:String x:Key="Naming.Digits">Nombre de chiffres</sys:String>
+    <sys:String x:Key="Naming.DigitsHint">0 = aucun zéro initial</sys:String>
+    <sys:String x:Key="Naming.Example">Exemple : {0}</sys:String>
+
+    <!-- ===== Actions ===== -->
+    <sys:String x:Key="Actions.Preview">Aperçu</sys:String>
+    <sys:String x:Key="Actions.Randomize">Randomiser</sys:String>
+    <sys:String x:Key="Actions.Undo">Annuler le dernier renommage</sys:String>
+    <sys:String x:Key="Actions.Cancel">Annuler</sys:String>
+    <sys:String x:Key="Actions.Close">Fermer</sys:String>
+    <sys:String x:Key="Actions.Save">Enregistrer</sys:String>
+    <sys:String x:Key="Actions.CheckNow">Rechercher des mises à jour</sys:String>
+    <sys:String x:Key="Actions.OpenReleases">Ouvrir la page des versions</sys:String>
+
+    <!-- ===== Preview ===== -->
+    <sys:String x:Key="Preview.Original">Nom actuel</sys:String>
+    <sys:String x:Key="Preview.NewName">Nouveau nom</sys:String>
+    <sys:String x:Key="Preview.Empty">Rien à prévisualiser pour le moment</sys:String>
+    <sys:String x:Key="Preview.EmptyHint">Choisissez un dossier et un modèle, puis cliquez sur Aperçu.</sys:String>
+    <sys:String x:Key="Preview.Total">{0} fichiers</sys:String>
+    <sys:String x:Key="Preview.Changes">{0} à renommer</sys:String>
+    <sys:String x:Key="Preview.Conflicts">{0} conflits</sys:String>
+    <sys:String x:Key="Preview.Truncated">Affichage des {0} premières lignes.</sys:String>
+
+    <!-- ===== Status ===== -->
+    <sys:String x:Key="Status.Ready">Prêt.</sys:String>
+    <sys:String x:Key="Status.Scanning">Analyse du dossier…</sys:String>
+    <sys:String x:Key="Status.Busy">Traitement en cours…</sys:String>
+    <sys:String x:Key="Status.BuildingPreview">Création de l'aperçu…</sys:String>
+    <sys:String x:Key="Status.Renaming">Renommage de {0} fichiers…</sys:String>
+    <sys:String x:Key="Status.Completed">{0} fichiers renommés en {1} s.</sys:String>
+    <sys:String x:Key="Status.Undone">{0} fichiers restaurés avec leur nom d'origine.</sys:String>
+    <sys:String x:Key="Status.Failed">L'opération a échoué. Aucun fichier n'est resté renommé.</sys:String>
+    <sys:String x:Key="Status.Cancelled">Opération annulée, tous les fichiers ont été restaurés.</sys:String>
+    <sys:String x:Key="Status.Conflicts">Aperçu prêt, mais {0} noms sont en conflit.</sys:String>
+    <sys:String x:Key="Status.PreviewReady">Aperçu prêt : {0} fichiers seront renommés.</sys:String>
+    <sys:String x:Key="Status.NothingToDo">Tous les fichiers portent déjà le nom cible.</sys:String>
+
+    <!-- ===== Messages ===== -->
+    <sys:String x:Key="Msg.InfoTitle">Information</sys:String>
+    <sys:String x:Key="Msg.SuccessTitle">Terminé</sys:String>
+    <sys:String x:Key="Msg.ErrorTitle">Problème</sys:String>
+    <sys:String x:Key="Msg.WarningTitle">Attention</sys:String>
+    <sys:String x:Key="Msg.NoFolder">Veuillez d'abord sélectionner un dossier.</sys:String>
+    <sys:String x:Key="Msg.FolderMissing">Ce dossier n'existe plus.</sys:String>
+    <sys:String x:Key="Msg.NoFiles">Aucun fichier n'a été trouvé dans ce dossier.</sys:String>
+    <sys:String x:Key="Msg.ConflictsBody">Ces noms cibles sont en conflit, donc aucun fichier n'a été renommé :
+{0}
+
+Renommez ou déplacez les fichiers listés, puis réessayez.</sys:String>
+    <sys:String x:Key="Msg.ConfirmTitle">Confirmer le renommage</sys:String>
+    <sys:String x:Key="Msg.ConfirmBody">{0} fichiers dans
+{1}
+vont être renommés. Continuer ?</sys:String>
+    <sys:String x:Key="Msg.RenameDone">{0} fichiers ont été renommés avec succès en {1} s.</sys:String>
+    <sys:String x:Key="Msg.UndoTitle">Annuler le dernier renommage</sys:String>
+    <sys:String x:Key="Msg.UndoBody">Restaurer les noms d'origine des {0} derniers fichiers ?</sys:String>
+    <sys:String x:Key="Msg.UndoNothing">Il n'y a encore rien à annuler.</sys:String>
+    <sys:String x:Key="Msg.UndoFailed">L'annulation n'a pas pu aboutir. {0}</sys:String>
+    <sys:String x:Key="Msg.NoPreview">Cliquez d'abord sur Aperçu pour vérifier le plan.</sys:String>
+
+    <!-- ===== Settings ===== -->
+    <sys:String x:Key="Settings.Title">Paramètres</sys:String>
+    <sys:String x:Key="Settings.Language">Langue</sys:String>
+    <sys:String x:Key="Settings.LanguageHint">Le persan et l'arabe passent toute l'interface en droite à gauche.</sys:String>
+    <sys:String x:Key="Settings.Appearance">Apparence</sys:String>
+    <sys:String x:Key="Settings.Theme">Thème</sys:String>
+    <sys:String x:Key="Settings.ThemeLight">Clair</sys:String>
+    <sys:String x:Key="Settings.ThemeDark">Sombre</sys:String>
+    <sys:String x:Key="Settings.ThemeSystem">Suivre Windows</sys:String>
+    <sys:String x:Key="Settings.Behavior">Comportement</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfolders">Inclure les sous-dossiers</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfoldersHint">Les fichiers des sous-dossiers sont renommés dans leur propre dossier.</sys:String>
+    <sys:String x:Key="Settings.Updates">Mises à jour</sys:String>
+    <sys:String x:Key="Settings.CheckUpdates">Vérifier les nouvelles versions sur GitHub au démarrage</sys:String>
+    <sys:String x:Key="Settings.CheckUpdatesHint">Utilise les versions publiques du dépôt du projet.</sys:String>
+    <sys:String x:Key="Settings.CurrentVersion">Version installée : {0}</sys:String>
+    <sys:String x:Key="Settings.NewVersion">La version {0} est disponible.</sys:String>
+    <sys:String x:Key="Settings.UpToDate">Vous utilisez la dernière version.</sys:String>
+    <sys:String x:Key="Settings.UpdateFailed">Impossible de joindre GitHub. Vérifiez votre connexion.</sys:String>
+    <sys:String x:Key="Settings.Checking">Recherche de mises à jour…</sys:String>
+
+    <!-- ===== Help ===== -->
+    <sys:String x:Key="Help.Title">Aide</sys:String>
+    <sys:String x:Key="Help.Subtitle">Comment mélanger les fichiers d'un dossier, étape par étape.</sys:String>
+    <sys:String x:Key="Help.Tab.Start">Premiers pas</sys:String>
+    <sys:String x:Key="Help.Tab.Naming">Modèle de nommage</sys:String>
+    <sys:String x:Key="Help.Tab.Safety">Raccourcis &amp; sécurité</sys:String>
+    <sys:String x:Key="Help.Tab.Faq">Questions fréquentes</sys:String>
+
+    <sys:String x:Key="Help.Step1.Title">1. Choisissez un dossier</sys:String>
+    <sys:String x:Key="Help.Step1.Body">Cliquez sur Parcourir… puis désignez le dossier qui contient vos fichiers. Les sous-dossiers ne sont pas touchés, sauf si vous activez « Inclure les sous-dossiers » dans les Paramètres.</sys:String>
+    <sys:String x:Key="Help.Step2.Title">2. Choisissez un modèle</sys:String>
+    <sys:String x:Key="Help.Step2.Body">Prenez Image, Fichier ou Personnalisé, puis réglez le numéro de départ, le nombre de chiffres et, en mode personnalisé, un préfixe. La bande bleue montre toujours un exemple en direct.</sys:String>
+    <sys:String x:Key="Help.Step3.Title">3. Prévisualisez</sys:String>
+    <sys:String x:Key="Help.Step3.Body">L'aperçu construit le tableau complet des anciens et des nouveaux noms pour que vous le vérifiiez avant toute action.</sys:String>
+    <sys:String x:Key="Help.Step4.Title">4. Randomisez</sys:String>
+    <sys:String x:Key="Help.Step4.Body">Après votre confirmation, les fichiers sont renommés un par un pendant que la barre de progression se remplit. La commande Annuler le dernier renommage ramène ensuite cette même fournée.</sys:String>
+    <sys:String x:Key="Help.Tip.Preview">L'aperçu ne modifie aucun fichier. Il ne fait que lire des noms.</sys:String>
+
+    <sys:String x:Key="Help.Naming.Presets.Title">Les trois préréglages</sys:String>
+    <sys:String x:Key="Help.Naming.Presets.Body">Image produit des noms comme « Image 1.jpg » et Fichier des noms comme « File 1.jpg ». Personnalisé vous laisse taper votre propre préfixe, par exemple « Holiday 1.jpg ». Le mot du préréglage n'est jamais traduit : le nom du fichier reste identique dans toutes les langues.</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Title">Préfixe personnalisé</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Body">Le préfixe se place devant le numéro. Laissez-le vide pour obtenir un simple numéro comme « 1.jpg ». Les caractères que Windows refuse dans un nom de fichier sont supprimés pour vous.</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Title">Numéro de départ et nombre de chiffres</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Body">Le numéro de départ décale toute la séquence : un départ à 10 avec 3 chiffres donne 010, 011 et 012. Mettez le nombre de chiffres à 0 pour supprimer les zéros initiaux.</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Title">L'extension est conservée</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Body">Seule la partie située avant le point est reconstruite : un .jpg reste un .jpg. Un fichier sans extension en reste sans.</sys:String>
+
+    <sys:String x:Key="Help.Safety.Atomic.Title">Tout ou rien</sys:String>
+    <sys:String x:Key="Help.Safety.Atomic.Body">Chaque renommage passe par un nom de transit caché. Si une étape échoue, les fichiers déjà touchés sont remis en place : une exécution ne laisse jamais le dossier à moitié renommé.</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Title">Aucun fichier n'est écrasé</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Body">Si deux fichiers doivent obtenir le même nom, l'aperçu signale le conflit et rien n'est renommé tant que vous ne l'avez pas résolu.</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Title">L'annulation est sûre</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Body">Vous pouvez appuyer sur Annuler pendant une longue exécution. Les fichiers déjà renommés sont restaurés avant l'arrêt.</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Title">Annuler le dernier lot</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Body">Après une exécution réussie, Annuler le dernier renommage restaure les noms d'origine de cette exécution, et d'elle seule.</sys:String>
+
+    <sys:String x:Key="Help.ShortcutsTitle">Clavier</sys:String>
+    <sys:String x:Key="Help.Key.F1">Ouvre cette fenêtre d'aide, depuis la fenêtre principale comme depuis les Paramètres.</sys:String>
+    <sys:String x:Key="Help.Key.Enter">Active le bouton qui a le focus et confirme la boîte de message.</sys:String>
+    <sys:String x:Key="Help.Key.Tab">Déplace le focus d'un contrôle au suivant.</sys:String>
+
+    <sys:String x:Key="Help.Faq1.Q">Un fichier a gardé son ancien nom. Pourquoi ?</sys:String>
+    <sys:String x:Key="Help.Faq1.A">Si le tirage au sort lui a rendu le nom qu'il portait déjà, il n'y a rien à écrire : l'aperçu le compte comme inchangé et ne le compte pas parmi les renommages.</sys:String>
+    <sys:String x:Key="Help.Faq2.Q">Pourquoi je vois moins de fichiers que dans l'explorateur ?</sys:String>
+    <sys:String x:Key="Help.Faq2.A">Les fichiers cachés et système sont ignorés, et les sous-dossiers ne sont inclus que si vous le demandez dans les Paramètres.</sys:String>
+    <sys:String x:Key="Help.Faq3.Q">Qu'est-ce qu'un fichier .rf_tmp_ ?</sys:String>
+    <sys:String x:Key="Help.Faq3.A">Un nom de transit utilisé uniquement pendant un renommage. Il est caché et l'analyseur l'ignore, donc un résidu d'une exécution interrompue ne sera jamais renommé à nouveau.</sys:String>
+
+    <!-- ===== About ===== -->
+    <sys:String x:Key="About.Title">À propos</sys:String>
+    <sys:String x:Key="About.Creator">Créateur</sys:String>
+    <sys:String x:Key="About.Profession">Profession</sys:String>
+    <sys:String x:Key="About.Field">Domaine</sys:String>
+    <sys:String x:Key="About.ProfessionValue">Technologue en génie électrique de puissance</sys:String>
+    <sys:String x:Key="About.FieldValue">Génie électrique de puissance, développeur de logiciels et d'applications web, concepteur de sites web, gestion et planification de projets</sys:String>
+    <sys:String x:Key="About.Version">Version</sys:String>
+    <sys:String x:Key="About.Repository">Dépôt</sys:String>
+    <sys:String x:Key="About.Copyright">Copyright © {0} {1}. Publié sous licence MIT.</sys:String>
+
+</ResourceDictionary>

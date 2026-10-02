@@ -1,0 +1,85 @@
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+publish/
+artifacts/
+*.tlog
+*.binlog
+
+## Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+*.rsuser
+*.sln.docstates
+*.DotSettings.user
+*.VC.db
+*.VC.VC.opendb
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuspec
+project.lock.json
+project.fragment.lock.json
+.nuget/
+
+## Test / coverage output
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+coverage*.info
+TestResults/
+
+## Windows / OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+## Secrets & local environment
+.env
+.env.*
+!.env.example
+*.local.json
+secrets.json
+
+## Local-only workspace state, not part of the application
+github-profile/
+.freebuff/
+
+## Local app data written next to the repo
+*.log
+setting.json
+
+## Installer / packaged output
+/dist/
+/release/
+*.msix
+*.appx
+*.appxbundle
+*.msi
+*.cab

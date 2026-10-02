@@ -1,0 +1,557 @@
+<Window x:Class="RandoFile.App.Views.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:core="clr-namespace:RandoFile.Core;assembly=RandoFile.Core"
+        Title="{x:Static core:AppInfo.Brand}"
+        Icon="pack://application:,,,/Assets/Brand/logo-mark.png"
+        Width="500"
+        Height="440"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        ShowActivated="False"
+        WindowStartupLocation="CenterScreen"
+        TextOptions.TextFormattingMode="Display"
+        UseLayoutRounding="True">
+
+    <!--
+        The mark is rebuilt here from vectors instead of being loaded as logo-mark.png, because the
+        animation needs to move the parts on their own. The geometry matches what
+        tools/Generate-Logo.ps1 draws: three document cards swept into a fan, a ring segment above
+        them. The left/right cards rest at +/-26 degrees and the hero card sits on top at 0.
+
+        Transform order per card is scale, tilt, wobble, slide, float. Tilt and slide belong to the
+        intro, wobble and float to the endless loop, so the two never fight over one property.
+        MarkScale sits on the wrapper and only carries the settle bounce at the end of the intro.
+    -->
+    <Window.Resources>
+        <LinearGradientBrush x:Key="HeroFill" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#4C8DFF" Offset="0" />
+            <GradientStop Color="#7C4DFF" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="LeftFill" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#9CBEFF" Offset="0" />
+            <GradientStop Color="#6A96FF" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="RightFill" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#C3ABFF" Offset="0" />
+            <GradientStop Color="#967AFF" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="BrandInk" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFFFFF" Offset="0" />
+            <GradientStop Color="#D6DEFF" Offset="1" />
+        </LinearGradientBrush>
+
+        <!-- Intro: the parts arrive one after another, then the mark settles with one soft bounce. -->
+        <Storyboard x:Key="FanIntro" FillBehavior="HoldEnd">
+            <DoubleAnimation Storyboard.TargetName="Stage"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.30" />
+            <DoubleAnimation Storyboard.TargetName="Glow"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.70" />
+            <DoubleAnimation Storyboard.TargetName="GlowPop"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0.62" To="1" Duration="0:0:0.85" BeginTime="0:0:0.05">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="GlowPop"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.62" To="1" Duration="0:0:0.85" BeginTime="0:0:0.05">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="RingTilt"
+                             Storyboard.TargetProperty="Angle"
+                             From="-72" To="0" Duration="0:0:0.90" BeginTime="0:0:0.06">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="RingFade"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.45" BeginTime="0:0:0.06" />
+
+            <DoubleAnimation Storyboard.TargetName="LeftSlide"
+                             Storyboard.TargetProperty="X"
+                             From="-64" To="0" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="LeftTilt"
+                             Storyboard.TargetProperty="Angle"
+                             From="-78" To="-26" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="LeftScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.28" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="LeftScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.28" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="RightSlide"
+                             Storyboard.TargetProperty="X"
+                             From="64" To="0" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="RightTilt"
+                             Storyboard.TargetProperty="Angle"
+                             From="78" To="26" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="RightScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.28" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="RightScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.28" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="HeroSlide"
+                             Storyboard.TargetProperty="Y"
+                             From="86" To="0" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="HeroTilt"
+                             Storyboard.TargetProperty="Angle"
+                             From="-24" To="0" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="HeroScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0.54" To="1" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.22" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="HeroScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.54" To="1" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.22" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <!-- One soft overshoot once everything has landed: the detail that reads as expensive. -->
+            <DoubleAnimation Storyboard.TargetName="MarkScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="1.055" To="1" Duration="0:0:0.55" BeginTime="0:0:0.90">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.18" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="MarkScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="1.055" To="1" Duration="0:0:0.55" BeginTime="0:0:0.90">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.18" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <Storyboard x:Key="TextIntro" BeginTime="0:0:0.52" FillBehavior="HoldEnd">
+            <DoubleAnimation Storyboard.TargetName="BrandText"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.45" />
+            <DoubleAnimation Storyboard.TargetName="BrandText"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                             From="12" To="0" Duration="0:0:0.50">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="TaglineText"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.45" />
+            <DoubleAnimation Storyboard.TargetName="TrackSlider"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.35" />
+        </Storyboard>
+
+        <!-- Endless loops, kept so they can be stopped before the window closes. -->
+        <Storyboard x:Key="RingLoop" BeginTime="0:0:1.00" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="RingSpin"
+                             Storyboard.TargetProperty="Angle"
+                             From="0" To="360" Duration="0:0:11" />
+            <DoubleAnimation Storyboard.TargetName="RingHalo"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.5" To="1" Duration="0:0:3.2"
+                             AutoReverse="True" RepeatBehavior="Forever" />
+        </Storyboard>
+
+        <Storyboard x:Key="GlowLoop" BeginTime="0:0:1.10" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="Glow"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.72" To="1" Duration="0:0:4.2" />
+            <DoubleAnimation Storyboard.TargetName="GlowPop"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="1" To="1.07" Duration="0:0:4.2" />
+            <DoubleAnimation Storyboard.TargetName="GlowPop"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="1" To="1.07" Duration="0:0:4.2" />
+        </Storyboard>
+
+        <!-- The fan never sits still: the side cards swing out of phase, the hero card breathes. -->
+        <Storyboard x:Key="LeftCardLoop" BeginTime="0:0:1.20" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="LeftWobble"
+                             Storyboard.TargetProperty="Angle"
+                             From="0" To="5.5" Duration="0:0:2.0" />
+            <DoubleAnimation Storyboard.TargetName="LeftFloat"
+                             Storyboard.TargetProperty="Y"
+                             From="0" To="-5" Duration="0:0:2.0" />
+        </Storyboard>
+
+        <Storyboard x:Key="RightCardLoop" BeginTime="0:0:1.62" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="RightWobble"
+                             Storyboard.TargetProperty="Angle"
+                             From="0" To="-5.5" Duration="0:0:2.0" />
+            <DoubleAnimation Storyboard.TargetName="RightFloat"
+                             Storyboard.TargetProperty="Y"
+                             From="0" To="-5" Duration="0:0:2.0" />
+        </Storyboard>
+
+        <Storyboard x:Key="HeroCardLoop" BeginTime="0:0:1.38" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="HeroFloat"
+                             Storyboard.TargetProperty="Y"
+                             From="0" To="-6" Duration="0:0:1.6" />
+            <DoubleAnimation Storyboard.TargetName="HeroScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="1" To="1.03" Duration="0:0:1.6" />
+            <DoubleAnimation Storyboard.TargetName="HeroScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="1" To="1.03" Duration="0:0:1.6" />
+        </Storyboard>
+
+        <!-- Highlight sweeping across the mark while the window loads. -->
+        <Storyboard x:Key="ShimmerLoop" BeginTime="0:0:1.30" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="Shimmer"
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                             From="-320" To="340" Duration="0:0:3.0" />
+        </Storyboard>
+
+        <Storyboard x:Key="TrackLoop" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="TrackOffset"
+                             Storyboard.TargetProperty="X"
+                             From="-130" To="350" Duration="0:0:1.25" />
+        </Storyboard>
+
+        <Storyboard x:Key="Outro">
+            <DoubleAnimation Storyboard.TargetName="Card"
+                             Storyboard.TargetProperty="Opacity"
+                             To="0" Duration="0:0:0.30" />
+            <DoubleAnimation Storyboard.TargetName="CardScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             To="0.965" Duration="0:0:0.30" />
+            <DoubleAnimation Storyboard.TargetName="CardScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             To="0.965" Duration="0:0:0.30" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <Border x:Name="Card"
+                Margin="20"
+                CornerRadius="26"
+                BorderThickness="1"
+                ClipToBounds="True">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="CardScale" ScaleX="1" ScaleY="1" CenterX="250" CenterY="220" />
+                </TransformGroup>
+            </Border.RenderTransform>
+
+            <!-- Soft shadow: a real blurred drop rather than a flat translucent rectangle. -->
+            <Border.Effect>
+                <DropShadowEffect Color="#000711" BlurRadius="30" ShadowDepth="2" Direction="90" Opacity="0.65" />
+            </Border.Effect>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.55,1">
+                    <GradientStop Color="#181C28" Offset="0" />
+                    <GradientStop Color="#12151F" Offset="0.55" />
+                    <GradientStop Color="#1A1F2E" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.8,1">
+                    <GradientStop Color="#4DFFFFFF" Offset="0" />
+                    <GradientStop Color="#0FFFFFFF" Offset="0.45" />
+                    <GradientStop Color="#26FFFFFF" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Light falling from the top left, so the surface is not a flat rectangle. -->
+                <Ellipse Grid.Row="0"
+                         Width="520" Height="360"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Margin="-90,-140,0,0"
+                         Opacity="0.55"
+                         IsHitTestVisible="False">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                            <GradientStop Color="#1FFFFFFF" Offset="0" />
+                            <GradientStop Color="#00FFFFFF" Offset="1" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+
+                <StackPanel Grid.Row="0" VerticalAlignment="Center">
+
+                    <!-- ================= The mark, as separate parts ================= -->
+                    <Grid x:Name="MarkBox" Width="280" Height="280" HorizontalAlignment="Center">
+                        <Grid.RenderTransform>
+                            <ScaleTransform x:Name="MarkScale" ScaleX="1" ScaleY="1" CenterX="140" CenterY="140" />
+                        </Grid.RenderTransform>
+
+                        <!-- Ambient light the mark appears to sit in. -->
+                        <Ellipse x:Name="Glow"
+                                 Width="290" Height="290"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Opacity="0">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="#4D5C84FF" Offset="0" />
+                                    <GradientStop Color="#265C84FF" Offset="0.42" />
+                                    <GradientStop Color="#005C84FF" Offset="1" />
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform x:Name="GlowPop" ScaleX="1" ScaleY="1" CenterX="145" CenterY="145" />
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+
+                        <Canvas x:Name="Stage"
+                                Width="160" Height="160"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Opacity="0">
+
+                            <!-- Ring segment and its arrow head rotate as one. -->
+                            <Canvas x:Name="RingFade" Width="160" Height="160" Opacity="0">
+                                <Canvas.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform x:Name="RingTilt" Angle="0" CenterX="80" CenterY="80" />
+                                        <RotateTransform x:Name="RingSpin" Angle="0" CenterX="80" CenterY="80" />
+                                    </TransformGroup>
+                                </Canvas.RenderTransform>
+                                <Canvas.Effect>
+                                    <DropShadowEffect Color="#5C84FF" BlurRadius="14" ShadowDepth="0" Direction="270" Opacity="0.7" />
+                                </Canvas.Effect>
+
+                                <!-- Wide translucent pass under the stroke reads as a halo. -->
+                                <Path x:Name="RingHalo"
+                                      Data="M 21.03,38.70 A 72,72 0 0 1 135.20,33.70"
+                                      Stroke="#4D7BA6FF"
+                                      StrokeThickness="15"
+                                      StrokeStartLineCap="Round"
+                                      StrokeEndLineCap="Round"
+                                      Opacity="0.5" />
+
+                                <!-- The stroke brightens towards the head and fades out behind it. -->
+                                <Path x:Name="RingArc"
+                                      Data="M 21.03,38.70 A 72,72 0 0 1 135.20,33.70"
+                                      StrokeThickness="7"
+                                      StrokeStartLineCap="Round"
+                                      StrokeEndLineCap="Round">
+                                    <Path.Stroke>
+                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                            <GradientStop Color="#005C84FF" Offset="0" />
+                                            <GradientStop Color="#8C5C84FF" Offset="0.34" />
+                                            <GradientStop Color="#FF8FB0FF" Offset="0.9" />
+                                            <GradientStop Color="#0098A8FF" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Path.Stroke>
+                                </Path>
+
+                                <Path x:Name="RingHead"
+                                      Canvas.Left="135.2" Canvas.Top="33.7"
+                                      Data="M 0,0 L -14,-8 L -7.5,0 L -14,8 Z"
+                                      Fill="#B4CBFF">
+                                    <Path.RenderTransform>
+                                        <RotateTransform Angle="50" />
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Canvas>
+
+                            <!-- Left card: 61 x 75, radius 6, fold 18. -->
+                            <Canvas Canvas.Left="26.3" Canvas.Top="47.3" Width="61" Height="75">
+                                <Canvas.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="LeftScale" ScaleX="1" ScaleY="1" CenterX="30.5" CenterY="37.5" />
+                                        <RotateTransform x:Name="LeftTilt" Angle="-26" CenterX="30.5" CenterY="37.5" />
+                                        <RotateTransform x:Name="LeftWobble" Angle="0" CenterX="30.5" CenterY="37.5" />
+                                        <TranslateTransform x:Name="LeftSlide" X="0" Y="0" />
+                                        <TranslateTransform x:Name="LeftFloat" X="0" Y="0" />
+                                    </TransformGroup>
+                                </Canvas.RenderTransform>
+                                <Canvas.Effect>
+                                    <DropShadowEffect Color="#000818" BlurRadius="14" ShadowDepth="4" Direction="90" Opacity="0.5" />
+                                </Canvas.Effect>
+                                <Path x:Name="LeftCard"
+                                      Data="M 0,6 A 6,6 0 0 1 6,0 L 43,0 L 61,18 L 61,69 A 6,6 0 0 1 55,75 L 6,75 A 6,6 0 0 1 0,69 Z"
+                                      Fill="{StaticResource LeftFill}"
+                                      Stroke="#5D88D7"
+                                      StrokeThickness="0.9" />
+                                <Path x:Name="LeftFold" Data="M 43,0 L 61,18 L 43,18 Z" Fill="#CBDCFF" />
+                            </Canvas>
+
+                            <!-- Right card: same size, mirrored tilt. -->
+                            <Canvas Canvas.Left="72.7" Canvas.Top="47.3" Width="61" Height="75">
+                                <Canvas.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="RightScale" ScaleX="1" ScaleY="1" CenterX="30.5" CenterY="37.5" />
+                                        <RotateTransform x:Name="RightTilt" Angle="26" CenterX="30.5" CenterY="37.5" />
+                                        <RotateTransform x:Name="RightWobble" Angle="0" CenterX="30.5" CenterY="37.5" />
+                                        <TranslateTransform x:Name="RightSlide" X="0" Y="0" />
+                                        <TranslateTransform x:Name="RightFloat" X="0" Y="0" />
+                                    </TransformGroup>
+                                </Canvas.RenderTransform>
+                                <Canvas.Effect>
+                                    <DropShadowEffect Color="#000818" BlurRadius="14" ShadowDepth="4" Direction="90" Opacity="0.5" />
+                                </Canvas.Effect>
+                                <Path x:Name="RightCard"
+                                      Data="M 0,6 A 6,6 0 0 1 6,0 L 43,0 L 61,18 L 61,69 A 6,6 0 0 1 55,75 L 6,75 A 6,6 0 0 1 0,69 Z"
+                                      Fill="{StaticResource RightFill}"
+                                      Stroke="#806ED7"
+                                      StrokeThickness="0.9" />
+                                <Path x:Name="RightFold" Data="M 43,0 L 61,18 L 43,18 Z" Fill="#DDCFFF" />
+                            </Canvas>
+
+                            <!-- Hero card: 67 x 86, radius 6, fold 20, sitting on top. -->
+                            <Canvas Canvas.Left="46.5" Canvas.Top="37" Width="67" Height="86">
+                                <Canvas.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform x:Name="HeroScale" ScaleX="1" ScaleY="1" CenterX="33.5" CenterY="43" />
+                                        <RotateTransform x:Name="HeroTilt" Angle="0" CenterX="33.5" CenterY="43" />
+                                        <TranslateTransform x:Name="HeroSlide" X="0" Y="0" />
+                                        <TranslateTransform x:Name="HeroFloat" X="0" Y="0" />
+                                    </TransformGroup>
+                                </Canvas.RenderTransform>
+                                <Canvas.Effect>
+                                    <DropShadowEffect Color="#000714" BlurRadius="20" ShadowDepth="7" Direction="90" Opacity="0.62" />
+                                </Canvas.Effect>
+                                <Path x:Name="HeroCard"
+                                      Data="M 0,6 A 6,6 0 0 1 6,0 L 47,0 L 67,20 L 67,80 A 6,6 0 0 1 61,86 L 6,86 A 6,6 0 0 1 0,80 Z"
+                                      Fill="{StaticResource HeroFill}"
+                                      Stroke="#185CD7"
+                                      StrokeThickness="1" />
+                                <Path x:Name="HeroFold" Data="M 47,0 L 67,20 L 47,20 Z" Fill="#D2BEFF" />
+                            </Canvas>
+
+                            <!-- Light sweep across the whole mark. -->
+                            <Rectangle x:Name="Shimmer"
+                                       Width="64"
+                                       Height="250"
+                                       Opacity="0.13"
+                                       IsHitTestVisible="False"
+                                       Canvas.Left="48"
+                                       Canvas.Top="-45">
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="-18" CenterX="32" CenterY="125" />
+                                        <TranslateTransform X="-320" />
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                        <GradientStop Color="#00FFFFFF" Offset="0" />
+                                        <GradientStop Color="#B3FFFFFF" Offset="0.5" />
+                                        <GradientStop Color="#00FFFFFF" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Canvas>
+                    </Grid>
+
+                    <TextBlock x:Name="BrandText"
+                               Text="{x:Static core:AppInfo.Brand}"
+                               Foreground="{StaticResource BrandInk}"
+                               FontFamily="Segoe UI Semibold, Segoe UI"
+                               FontSize="32"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               Margin="0,10,0,0"
+                               Opacity="0">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform Y="12" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+
+                    <TextBlock x:Name="TaglineText"
+                               Text="{x:Static core:AppInfo.Tagline}"
+                               Foreground="#A6B1CA"
+                               FontFamily="Segoe UI"
+                               FontSize="13"
+                               HorizontalAlignment="Center"
+                               Margin="0,7,0,0"
+                               Opacity="0" />
+                </StackPanel>
+
+                <!-- Loading track -->
+                <Grid Grid.Row="1" Height="4">
+                    <Border Background="#1AFFFFFF" CornerRadius="2" />
+                    <!-- Indeterminate segment that slides across the track while the app loads. -->
+                    <Border x:Name="TrackSlider"
+                            Width="150"
+                            Height="4"
+                            HorizontalAlignment="Left"
+                            Opacity="0"
+                            CornerRadius="2">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#005C84FF" Offset="0" />
+                                <GradientStop Color="#FF7BA6FF" Offset="0.5" />
+                                <GradientStop Color="#005C84FF" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.RenderTransform>
+                            <TranslateTransform x:Name="TrackOffset" X="0" />
+                        </Border.RenderTransform>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,191 @@
+<Window x:Class="RandoFile.App.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:utils="clr-namespace:RandoFile.App.Utils"
+        Title="{DynamicResource Settings.Title}"
+        Icon="pack://application:,,,/Assets/Brand/logo-mark.png"
+        Width="520"
+        Height="700"
+        MinWidth="460"
+        MinHeight="520"
+        Background="{DynamicResource Brush.Window}"
+        FontFamily="{StaticResource App.FontFamily}"
+        FontSize="13"
+        TextOptions.TextFormattingMode="Display"
+        UseLayoutRounding="True"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        PreviewKeyDown="OnPreviewKeyDown">
+
+    <Window.Resources>
+        <utils:EmptyStringToVisibilityConverter x:Key="EmptyToVisibility" />
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="{DynamicResource Brush.Header}"
+                BorderBrush="{DynamicResource Brush.Divider}"
+                BorderThickness="0,0,0,1"
+                Padding="20,16">
+            <TextBlock Text="{DynamicResource Settings.Title}" Style="{StaticResource TitleText}" />
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="20">
+
+                <!-- Language -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource Settings.Language}" Style="{StaticResource SectionTitle}" />
+                        <ListBox x:Name="LanguageList"
+                                 Style="{StaticResource ChoiceList}"
+                                 SelectionChanged="OnLanguageSelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.Column="0"
+                                                Padding="8,3"
+                                                CornerRadius="6"
+                                                VerticalAlignment="Center"
+                                                Background="{DynamicResource Brush.AccentSoft}"
+                                                Visibility="{Binding Badge, Converter={StaticResource EmptyToVisibility}}">
+                                            <TextBlock Text="{Binding Badge}"
+                                                       FontSize="11"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="{DynamicResource Brush.Accent}" />
+                                        </Border>
+                                        <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Label}"
+                                                       Foreground="{DynamicResource Brush.TextPrimary}"
+                                                       FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding Secondary}"
+                                                       Style="{StaticResource CaptionText}"
+                                                       FontSize="11" />
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <TextBlock Text="{DynamicResource Settings.LanguageHint}"
+                                   Style="{StaticResource CaptionText}"
+                                   Margin="0,4,0,0" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Appearance -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource Settings.Appearance}" Style="{StaticResource SectionTitle}" />
+                        <ListBox x:Name="ThemeList"
+                                 Style="{StaticResource ChoiceList}"
+                                 SelectionChanged="OnThemeSelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Label}"
+                                               Foreground="{DynamicResource Brush.TextPrimary}"
+                                               FontWeight="SemiBold" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </StackPanel>
+                </Border>
+
+                <!-- Behaviour -->
+                <Border Style="{StaticResource Card}" Margin="0,0,0,14">
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource Settings.Behavior}" Style="{StaticResource SectionTitle}" />
+                        <CheckBox x:Name="IncludeSubfoldersCheck"
+                                  Style="{StaticResource OptionCheckBox}"
+                                  Content="{DynamicResource Settings.IncludeSubfolders}"
+                                  Checked="OnOptionChanged"
+                                  Unchecked="OnOptionChanged" />
+                        <TextBlock Text="{DynamicResource Settings.IncludeSubfoldersHint}"
+                                   Style="{StaticResource CaptionText}"
+                                   Margin="27,4,0,0" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Updates -->
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource Settings.Updates}" Style="{StaticResource SectionTitle}" />
+                        <CheckBox x:Name="CheckUpdatesCheck"
+                                  Style="{StaticResource OptionCheckBox}"
+                                  Content="{DynamicResource Settings.CheckUpdates}"
+                                  Checked="OnOptionChanged"
+                                  Unchecked="OnOptionChanged" />
+                        <TextBlock Text="{DynamicResource Settings.CheckUpdatesHint}"
+                                   Style="{StaticResource CaptionText}"
+                                   Margin="27,4,0,0" />
+
+                        <Grid Margin="0,14,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                <TextBlock x:Name="VersionText" Style="{StaticResource CaptionText}" />
+                                <TextBlock x:Name="UpdateStatusText"
+                                           Style="{StaticResource CaptionText}"
+                                           FontWeight="SemiBold"
+                                           TextWrapping="Wrap"
+                                           Margin="0,3,0,0" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    x:Name="CheckUpdatesButton"
+                                    Content="{DynamicResource Actions.CheckNow}"
+                                    Click="OnCheckUpdatesClick"
+                                    Style="{StaticResource SecondaryButton}"
+                                    Padding="12,9"
+                                    VerticalAlignment="Center"
+                                    Margin="10,0,0,0" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource Brush.Header}"
+                BorderBrush="{DynamicResource Brush.Divider}"
+                BorderThickness="0,1,0,0"
+                Padding="20,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="?"
+                            ToolTip="{DynamicResource Header.Help}"
+                            Click="OnHelpClick"
+                            Style="{StaticResource GhostButton}"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Padding="12,9"
+                            VerticalAlignment="Center"
+                            Margin="0,0,10,0" />
+                    <Button Content="{DynamicResource Actions.Cancel}"
+                            Click="OnCancelClick"
+                            Style="{StaticResource SecondaryButton}"
+                            Margin="0,0,8,0" />
+                    <Button Content="{DynamicResource Actions.Save}"
+                            Click="OnSaveClick"
+                            Style="{StaticResource PrimaryButton}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

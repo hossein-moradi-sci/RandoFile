@@ -1,0 +1,171 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- ===== Application ===== -->
+    <sys:String x:Key="Header.Settings">تنظیمات</sys:String>
+    <sys:String x:Key="Header.About">درباره</sys:String>
+    <sys:String x:Key="Header.Help">راهنما</sys:String>
+
+    <!-- ===== Sections ===== -->
+    <sys:String x:Key="Section.Folder">پوشه</sys:String>
+    <sys:String x:Key="Section.Naming">الگوی نام‌گذاری</sys:String>
+    <sys:String x:Key="Section.Preview">پیش‌نمایش</sys:String>
+
+    <!-- ===== Folder ===== -->
+    <sys:String x:Key="Folder.Placeholder">پوشه‌ای را که فایل‌ها در آن قرار دارند انتخاب کنید</sys:String>
+    <sys:String x:Key="Folder.Browse">انتخاب پوشه…</sys:String>
+    <sys:String x:Key="Folder.Open">نمایش در ویندوز</sys:String>
+    <sys:String x:Key="Folder.NoFolder">پوشه‌ای انتخاب نشده است</sys:String>
+    <sys:String x:Key="Folder.FilesFound">{0} فایل پیدا شد</sys:String>
+
+    <!-- ===== Naming ===== -->
+    <sys:String x:Key="Naming.Preset">الگوی آماده</sys:String>
+    <sys:String x:Key="Naming.PresetImage">تصویر</sys:String>
+    <sys:String x:Key="Naming.PresetFile">فایل</sys:String>
+    <sys:String x:Key="Naming.PresetCustom">دلخواه</sys:String>
+    <sys:String x:Key="Naming.CustomPrefix">پیشوند دلخواه</sys:String>
+    <sys:String x:Key="Naming.CustomPrefixHint">مثلاً: سفر</sys:String>
+    <sys:String x:Key="Naming.StartNumber">شماره شروع</sys:String>
+    <sys:String x:Key="Naming.Digits">تعداد رقم</sys:String>
+    <sys:String x:Key="Naming.DigitsHint">۰ یعنی بدون صفر ابتدایی</sys:String>
+    <sys:String x:Key="Naming.Example">نمونه: {0}</sys:String>
+
+    <!-- ===== Actions ===== -->
+    <sys:String x:Key="Actions.Preview">پیش‌نمایش</sys:String>
+    <sys:String x:Key="Actions.Randomize">تصادفی کن</sys:String>
+    <sys:String x:Key="Actions.Undo">بازگرداندن نام‌های قبلی</sys:String>
+    <sys:String x:Key="Actions.Cancel">انصراف</sys:String>
+    <sys:String x:Key="Actions.Close">بستن</sys:String>
+    <sys:String x:Key="Actions.Save">ذخیره</sys:String>
+    <sys:String x:Key="Actions.CheckNow">بررسی به‌روزرسانی</sys:String>
+    <sys:String x:Key="Actions.OpenReleases">صفحه انتشار نسخه‌ها</sys:String>
+
+    <!-- ===== Preview ===== -->
+    <sys:String x:Key="Preview.Original">نام فعلی</sys:String>
+    <sys:String x:Key="Preview.NewName">نام جدید</sys:String>
+    <sys:String x:Key="Preview.Empty">هنوز چیزی برای پیش‌نمایش نیست</sys:String>
+    <sys:String x:Key="Preview.EmptyHint">پوشه و الگو را انتخاب کنید و روی «پیش‌نمایش» بزنید.</sys:String>
+    <sys:String x:Key="Preview.Total">{0} فایل</sys:String>
+    <sys:String x:Key="Preview.Changes">{0} مورد برای تغییر نام</sys:String>
+    <sys:String x:Key="Preview.Conflicts">{0} تعارض</sys:String>
+    <sys:String x:Key="Preview.Truncated">تنها {0} سطر اول نمایش داده می‌شود.</sys:String>
+
+    <!-- ===== Status ===== -->
+    <sys:String x:Key="Status.Ready">آماده است.</sys:String>
+    <sys:String x:Key="Status.Scanning">در حال بررسی پوشه…</sys:String>
+    <sys:String x:Key="Status.Busy">در حال انجام کار…</sys:String>
+    <sys:String x:Key="Status.BuildingPreview">در حال ساخت پیش‌نمایش…</sys:String>
+    <sys:String x:Key="Status.Renaming">در حال تغییر نام {0} فایل…</sys:String>
+    <sys:String x:Key="Status.Completed">نام {0} فایل در {1} ثانیه تغییر کرد.</sys:String>
+    <sys:String x:Key="Status.Undone">نام {0} فایل به حالت اولیه بازگردانده شد.</sys:String>
+    <sys:String x:Key="Status.Failed">عملیات انجام نشد؛ هیچ فایلی با نام نیمه‌کاره باقی نماند.</sys:String>
+    <sys:String x:Key="Status.Cancelled">عملیات لغو شد و همه فایل‌ها به نام قبلی بازگشتند.</sys:String>
+    <sys:String x:Key="Status.Conflicts">پیش‌نمایش آماده است، اما {0} نام با هم تداخل دارند.</sys:String>
+    <sys:String x:Key="Status.PreviewReady">پیش‌نمایش آماده است: نام {0} فایل تغییر می‌کند.</sys:String>
+    <sys:String x:Key="Status.NothingToDo">همه فایل‌ها از قبل نام مقصد را دارند.</sys:String>
+
+    <!-- ===== Messages ===== -->
+    <sys:String x:Key="Msg.InfoTitle">اطلاع</sys:String>
+    <sys:String x:Key="Msg.SuccessTitle">انجام شد</sys:String>
+    <sys:String x:Key="Msg.ErrorTitle">خطا</sys:String>
+    <sys:String x:Key="Msg.WarningTitle">هشدار</sys:String>
+    <sys:String x:Key="Msg.NoFolder">لطفاً ابتدا یک پوشه انتخاب کنید.</sys:String>
+    <sys:String x:Key="Msg.FolderMissing">این پوشه دیگر وجود ندارد.</sys:String>
+    <sys:String x:Key="Msg.NoFiles">هیچ فایلی در این پوشه پیدا نشد.</sys:String>
+    <sys:String x:Key="Msg.ConflictsBody">این نام‌های مقصد با هم یا با فایل‌های موجود تداخل دارند، بنابراین هیچ فایلی تغییر نام پیدا نکرد:
+{0}
+
+فایل‌های فهرست‌شده را جابه‌جا یا حذف کنید و سپس دوباره تلاش کنید.</sys:String>
+    <sys:String x:Key="Msg.ConfirmTitle">تأیید تغییر نام</sys:String>
+    <sys:String x:Key="Msg.ConfirmBody">نام {0} فایل در مسیر
+{1}
+تغییر می‌کند. ادامه می‌دهید؟</sys:String>
+    <sys:String x:Key="Msg.RenameDone">نام {0} فایل با موفقیت در {1} ثانیه تغییر کرد.</sys:String>
+    <sys:String x:Key="Msg.UndoTitle">بازگرداندن نام‌های قبلی</sys:String>
+    <sys:String x:Key="Msg.UndoBody">نام قبلی {0} فایل بازگردانده شود؟</sys:String>
+    <sys:String x:Key="Msg.UndoNothing">هنوز چیزی برای بازگرداندن وجود ندارد.</sys:String>
+    <sys:String x:Key="Msg.UndoFailed">بازگردانی کامل نشد. {0}</sys:String>
+    <sys:String x:Key="Msg.NoPreview">ابتدا «پیش‌نمایش» را بزنید تا طرح بررسی شود.</sys:String>
+
+    <!-- ===== Settings ===== -->
+    <sys:String x:Key="Settings.Title">تنظیمات</sys:String>
+    <sys:String x:Key="Settings.Language">زبان</sys:String>
+    <sys:String x:Key="Settings.LanguageHint">با انتخاب فارسی یا عربی، کل برنامه راست‌به‌چپ می‌شود.</sys:String>
+    <sys:String x:Key="Settings.Appearance">ظاهر</sys:String>
+    <sys:String x:Key="Settings.Theme">پوسته</sys:String>
+    <sys:String x:Key="Settings.ThemeLight">روشن</sys:String>
+    <sys:String x:Key="Settings.ThemeDark">تیره</sys:String>
+    <sys:String x:Key="Settings.ThemeSystem">هماهنگ با ویندوز</sys:String>
+    <sys:String x:Key="Settings.Behavior">رفتار برنامه</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfolders">شامل زیرپوشه‌ها</sys:String>
+    <sys:String x:Key="Settings.IncludeSubfoldersHint">فایل‌های زیرپوشه‌ها در همان زیرپوشه تغییر نام می‌یابند.</sys:String>
+    <sys:String x:Key="Settings.Updates">به‌روزرسانی‌ها</sys:String>
+    <sys:String x:Key="Settings.CheckUpdates">هنگام اجرا، نسخه‌های جدید را از گیت‌هاب بررسی کن</sys:String>
+    <sys:String x:Key="Settings.CheckUpdatesHint">از بخش انتشار عمومی مخزن پروژه استفاده می‌کند.</sys:String>
+    <sys:String x:Key="Settings.CurrentVersion">نسخه نصب‌شده: {0}</sys:String>
+    <sys:String x:Key="Settings.NewVersion">نسخه {0} منتشر شده است.</sys:String>
+    <sys:String x:Key="Settings.UpToDate">شما آخرین نسخه را اجرا می‌کنید.</sys:String>
+    <sys:String x:Key="Settings.UpdateFailed">دسترسی به گیت‌هاب ممکن نشد. اتصال خود را بررسی کنید.</sys:String>
+    <sys:String x:Key="Settings.Checking">در حال بررسی به‌روزرسانی…</sys:String>
+
+    <!-- ===== Help ===== -->
+    <sys:String x:Key="Help.Title">راهنما</sys:String>
+    <sys:String x:Key="Help.Subtitle">آشنایی گام‌به‌گام با تصادفی کردن نام فایل‌های یک پوشه.</sys:String>
+    <sys:String x:Key="Help.Tab.Start">شروع سریع</sys:String>
+    <sys:String x:Key="Help.Tab.Naming">الگوی نام‌گذاری</sys:String>
+    <sys:String x:Key="Help.Tab.Safety">میان‌برها و ایمنی</sys:String>
+    <sys:String x:Key="Help.Tab.Faq">پرسش‌های متداول</sys:String>
+
+    <sys:String x:Key="Help.Step1.Title">۱. یک پوشه انتخاب کنید</sys:String>
+    <sys:String x:Key="Help.Step1.Body">دکمهٔ «انتخاب پوشه…» را بزنید و پوشهٔ حاوی فایل‌ها را برگزینید. زیرپوشه‌ها دست‌نخورده می‌مانند، مگر اینکه در تنظیمات گزینهٔ «شامل زیرپوشه‌ها» را روشن کنید.</sys:String>
+    <sys:String x:Key="Help.Step2.Title">۲. الگو را انتخاب کنید</sys:String>
+    <sys:String x:Key="Help.Step2.Body">یکی از «تصویر»، «فایل» یا «دلخواه» را برگزینید، سپس شمارهٔ شروع، تعداد رقم و در حالت دلخواه یک پیشوند بنویسید. نوار آبی همیشه نمونه‌ای زنده از نتیجه را نشان می‌دهد.</sys:String>
+    <sys:String x:Key="Help.Step3.Title">۳. نتیجه را پیش‌نمایش کنید</sys:String>
+    <sys:String x:Key="Help.Step3.Body">پیش‌نمایش جدول کامل نام‌های قدیم و جدید را می‌سازد تا پیش از هر تغییری آن را بررسی کنید.</sys:String>
+    <sys:String x:Key="Help.Step4.Title">۴. تصادفی کنید</sys:String>
+    <sys:String x:Key="Help.Step4.Body">پس از تأیید شما، فایل‌ها یکی‌یکی تغییر نام می‌یابند و نوار پیشرفت پر می‌شود. بعداً می‌توانید با «بازگرداندن نام‌های قبلی» همین دسته را به حالت اول برگردانید.</sys:String>
+    <sys:String x:Key="Help.Tip.Preview">پیش‌نمایش هیچ فایلی را تغییر نمی‌دهد؛ تنها نام‌ها را می‌خواند.</sys:String>
+
+    <sys:String x:Key="Help.Naming.Presets.Title">سه الگوی آماده</sys:String>
+    <sys:String x:Key="Help.Naming.Presets.Body">الگوی «تصویر» نامی مانند Image 1.jpg و الگوی «فایل» نامی مانند File 1.jpg می‌سازد. الگوی «دلخواه» اجازه می‌دهد پیشوند خودتان را بنویسید، مثلاً Holiday 1.jpg. خودِ واژهٔ الگو ترجمه نمی‌شود، پس نام فایل در همهٔ زبان‌ها یکسان می‌ماند.</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Title">پیشوند دلخواه</sys:String>
+    <sys:String x:Key="Help.Naming.Prefix.Body">پیشوند پیش از شماره قرار می‌گیرد. اگر آن را خالی بگذارید، فقط شماره می‌ماند؛ مثل 1.jpg. نویسه‌هایی که ویندوز در نام فایل نمی‌پذیرد خودکار حذف می‌شوند.</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Title">شمارهٔ شروع و تعداد رقم</sys:String>
+    <sys:String x:Key="Help.Naming.Numbering.Body">شمارهٔ شروع کل دنباله را جابه‌جا می‌کند: با شروع ۱۰ و ۳ رقم، نام‌ها 010، 011 و 012 می‌شوند. اگر تعداد رقم را صفر بگذارید، صفرهای ابتدایی حذف می‌شوند.</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Title">پسوند حفظ می‌شود</sys:String>
+    <sys:String x:Key="Help.Naming.Extension.Body">تنها بخش پیش از نقطه بازسازی می‌شود، پس یک فایل jpg همان jpg می‌ماند. فایلی که پسوند ندارد هم بدون پسوند نام‌گذاری می‌شود.</sys:String>
+
+    <sys:String x:Key="Help.Safety.Atomic.Title">یا همه، یا هیچ</sys:String>
+    <sys:String x:Key="Help.Safety.Atomic.Body">هر تغییر نام از یک نام موقت پنهان عبور می‌کند. اگر جایی خطا رخ دهد، فایل‌های دست‌خورده به حالت اول برمی‌گردند؛ پس یک اجرا هرگز پوشه را نیمه‌کاره رها نمی‌کند.</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Title">هیچ فایلی بازنویسی نمی‌شود</sys:String>
+    <sys:String x:Key="Help.Safety.NoOverwrite.Body">اگر دو فایل به یک نام برسند، پیش‌نمایش تداخل را گزارش می‌کند و تا زمانی که مشکل را برطرف نکنید هیچ فایلی تغییر نام نمی‌یابد.</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Title">لغو کردن بی‌خطر است</sys:String>
+    <sys:String x:Key="Help.Safety.Temp.Body">در حین یک اجرای طولانی می‌توانید «لغو» را بزنید. فایل‌هایی که تا آن لحظه تغییر نام یافته‌اند پیش از توقف به حالت اول برمی‌گردند.</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Title">بازگرداندن آخرین دسته</sys:String>
+    <sys:String x:Key="Help.Safety.Undo.Body">پس از یک اجرای موفق، «بازگرداندن نام‌های قبلی» نام‌های اصلی همان اجرا را برمی‌گرداند و تنها همان اجرا را.</sys:String>
+
+    <sys:String x:Key="Help.ShortcutsTitle">صفحه‌کلید</sys:String>
+    <sys:String x:Key="Help.Key.F1">همین پنجرهٔ راهنما را باز می‌کند؛ هم از پنجرهٔ اصلی و هم از تنظیمات.</sys:String>
+    <sys:String x:Key="Help.Key.Enter">دکمه‌ای را که روی آن تمرکز است فعال می‌کند و کادر پیام را تأیید می‌کند.</sys:String>
+    <sys:String x:Key="Help.Key.Tab">تمرکز را از یک کنترل به کنترل بعدی می‌برد.</sys:String>
+
+    <sys:String x:Key="Help.Faq1.Q">یک فایل نام قبلی‌اش را نگه داشت. چرا؟</sys:String>
+    <sys:String x:Key="Help.Faq1.A">اگر تصادف نامی را به فایلی بدهد که هم‌اکنون همان نام را دارد، چیزی برای نوشتن نیست؛ پس پیش‌نمایش آن را بدون تغییر می‌شمارد و در شمار تغییرات نمی‌آورد.</sys:String>
+    <sys:String x:Key="Help.Faq2.Q">چرا تعداد فایل‌ها کمتر از چیزی است که در اکسپلورر می‌بینم؟</sys:String>
+    <sys:String x:Key="Help.Faq2.A">فایل‌های پنهان و سیستمی نادیده گرفته می‌شوند و زیرپوشه‌ها تنها زمانی بررسی می‌شوند که در تنظیمات بخواهید.</sys:String>
+    <sys:String x:Key="Help.Faq3.Q">فایل ‎.rf_tmp_‎ چیست؟</sys:String>
+    <sys:String x:Key="Help.Faq3.A">نامی موقت است که فقط هنگام اجرای تغییر نام استفاده می‌شود. این نام پنهان است و اسکنر آن را نادیده می‌گیرد، پس بازماندهٔ یک اجرای نیمه‌کاره هرگز دوباره تغییر نام نمی‌خورد.</sys:String>
+
+    <!-- ===== About ===== -->
+    <sys:String x:Key="About.Title">درباره</sys:String>
+    <sys:String x:Key="About.Creator">سازنده</sys:String>
+    <sys:String x:Key="About.Profession">حرفه</sys:String>
+    <sys:String x:Key="About.Field">زمینه فعالیت</sys:String>
+    <sys:String x:Key="About.ProfessionValue">کارشناس فناوری مهندسی قدرت برق</sys:String>
+    <sys:String x:Key="About.FieldValue">مهندسی برق قدرت، توسعه‌دهنده نرم‌افزار و اپلیکیشن وب، طراح وب‌سایت، مدیریت و برنامه‌ریزی پروژه</sys:String>
+    <sys:String x:Key="About.Version">نسخه</sys:String>
+    <sys:String x:Key="About.Repository">مخزن گیت‌هاب</sys:String>
+    <sys:String x:Key="About.Copyright">© {0} {1}. منتشر شده تحت پروانه MIT.</sys:String>
+
+</ResourceDictionary>

@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- net8.0-windows + UseWPF so the suite can also reflect over the view models and validate
+         the XAML bindings that bind the UI to them. -->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RandoFile.Core\RandoFile.Core.csproj" />
+    <ProjectReference Include="..\..\src\RandoFile.App\RandoFile.App.csproj" />
+  </ItemGroup>
+
+  <!--
+    The WPF resource dictionaries and the window markup are compiled into the app assembly, so they
+    are copied next to the tests as plain files. That keeps the localisation, theme and binding
+    checks independent from a running desktop application.
+  -->
+  <ItemGroup>
+    <None Include="..\..\src\RandoFile.App\Resources\Strings\*.xaml"
+          Link="Strings\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\src\RandoFile.App\Resources\Themes\*.xaml"
+          Link="Themes\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\src\RandoFile.App\Resources\Help\*.xaml"
+          Link="Help\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\src\RandoFile.App\MainWindow.xaml"
+          Link="Xaml\MainWindow.xaml"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\src\RandoFile.App\Views\*.xaml"
+          Link="Xaml\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>
