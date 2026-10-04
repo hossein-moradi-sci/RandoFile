@@ -91,3 +91,7 @@ setting.json
 *.appxbundle
 *.msi
 *.cab
+
+# The portable zip is built into the repository root by the release workflow, so a local run of
+# that step would otherwise leave a ~58 MB file showing up as untracked.
+/RandoFile-*-win-x64.zip

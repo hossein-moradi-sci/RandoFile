@@ -150,9 +150,9 @@ Requirements: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and
 git clone https://github.com/hossein-moradi-sci/hm-file-randomizer.git
 cd hm-file-randomizer
 
-dotnet restore
-dotnet build   -c Release
-dotnet test    -c Release
+dotnet restore RandoFile.sln
+dotnet build   RandoFile.sln -c Release --no-restore
+dotnet test    RandoFile.sln -c Release --no-build
 ```
 
 ### Producing the single-file `.exe`
@@ -179,6 +179,7 @@ src/
     Models/                      NamingPattern, RenamePlan, RenameProgress, RenameResult
     Services/                    FileShuffler, FileScanner, RenamePlanBuilder, RenameExecutor
     Abstractions/                IFileScanner, IFileShuffler
+    CommandLineTarget.cs         Turns the path Windows hands us into a folder to open
     AppInfo.cs                   Brand, product name, version and repository identity
   RandoFile.App/                 WPF application
     ViewModels/                  MainViewModel, SettingsOption, PreviewRow
@@ -199,6 +200,13 @@ installer/
   lang/                          Wizard strings: english, farsi, french, arabic
 tools/
   Generate-Logo.ps1              Draws the brand mark and writes the PNG/ICO assets
+  Sign-Release.ps1               Signs the release with your own certificate
+scripts-verify/
+  verify-assoc.ps1               Installs per-user and checks every association registry key
+  verify-machine.ps1             The same against a machine-wide install in Program Files
+  verify-finish-page.ps1         Drives the real wizard and clicks its Finish button
+  verify-signing.ps1             Proves the signing script with a throwaway certificate
+  common.ps1                     Helpers the association scripts share
 ```
 
 The `Core` project has no WPF dependency, which is what makes the rename logic fully testable.
@@ -208,7 +216,7 @@ The `Core` project has no WPF dependency, which is what makes the rename logic f
 ## Testing
 
 ```powershell
-dotnet test
+dotnet test RandoFile.sln
 ```
 
 The suite covers the naming pattern, the planner (duplicate, overwrite, no-op detection), the
@@ -238,9 +246,12 @@ quietly fall back to English for.
 The wizard itself is verified by running it. `scripts-verify/verify-assoc.ps1` installs per-user
 (`/CURRENTUSER`, so no UAC prompt) with the association task, reads every registry entry back,
 then installs without the task and uninstalls — checking in each case that exactly the right keys
-exist. `scripts-verify/verify-finish-page.ps1` walks the real wizard to its last page and confirms
-that the three options are there and that clicking Finish opens the app, the install folder and the
-project page.
+exist. `scripts-verify/verify-machine.ps1` does the same for a machine-wide install, which needs an
+elevated shell. `scripts-verify/verify-finish-page.ps1` walks the real wizard to its last page and
+confirms that the three options are there and that clicking Finish opens the app, the install
+folder and the project page. `scripts-verify/verify-signing.ps1` signs a throwaway copy of the
+published executable with a certificate it creates and then deletes, so the signing path is proven
+on a machine that has no certificate at all.
 
 ---
 

@@ -1,0 +1,26 @@
+# Line endings, decided once here instead of by whatever core.autocrlf each
+# machine happens to have. Without this the same commit shows as a change to
+# every line on a machine with a different setting.
+
+# Default: normalise to LF in the repository, let each checkout use its native
+# endings. This is what keeps diffs readable on Windows and correct elsewhere.
+* text=auto eol=lf
+
+# Files that must never gain a stray carriage return, because a tool reads
+# them byte for byte: Inno Setup rejects a CRLF licence file's BOM handling,
+# and the workflow's YAML is parsed the same way by every runner.
+*.iss   text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.isl   text eol=lf
+
+# PowerShell scripts run through Windows PowerShell 5.1, which reads a .ps1 as
+# ANSI unless the file has a BOM. CRLF is safe here, but pinning it keeps the
+# byte content identical between the local run and the CI run.
+*.ps1   text eol=crlf
+
+# Binary, never touched by any newline conversion.
+*.png   binary
+*.ico   binary
+*.exe   binary
+*.pfx   binary
