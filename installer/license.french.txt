@@ -1,0 +1,173 @@
+﻿================================================================================
+ HM File Randomizer (RandoFile)
+ Contrat de licence de l'utilisateur final et conditions d'utilisation
+================================================================================
+
+IMPORTANT - À LIRE AVANT L'INSTALLATION
+
+Le présent document (le « Contrat ») est conclu entre Hossein Moradi (l'« Auteur »)
+et vous (l'« Utilisateur »), la personne ou l'organisation qui installe ou utilise
+HM File Randomizer, également connu sous le nom de RandoFile (le « Logiciel »).
+Il prend effet dès l'installation ou le premier lancement du Logiciel et régit
+cette utilisation.
+
+  Sommaire
+    1.  Acceptation du présent Contrat
+    2.  Définitions
+    3.  Licence d'utilisation du Logiciel
+    4.  La Licence MIT, reproduite intégralement
+    5.  Propriété du nom et du logo
+    6.  Utilisation acceptable
+    7.  Exclusion des garanties
+    8.  Limitation de responsabilité
+    9.  Résiliation
+    10. Révision du présent Contrat
+    11. Contact
+
+
+1. ACCEPTATION DU PRÉSENT CONTRAT
+
+1.1  En installant, copiant ou utilisant le Logiciel, vous reconnaissez avoir lu
+     le présent Contrat, en accepter l'intégralité et être autorisé à le faire.
+     Si vous ne l'acceptez pas, n'installez pas le Logiciel ; si vous l'avez déjà
+     installé, désinstallez-le et retirez-le de votre ordinateur.
+
+1.2  Le Logiciel vous est concédé sous licence, il ne vous est pas vendu. La
+     propriété du Logiciel lui-même ne vous est jamais transférée.
+
+
+2. DÉFINITIONS
+
+2.1  « Logiciel » désigne HM File Randomizer, y compris son exécutable, ses
+     icônes, ses éléments graphiques, sa documentation et son code source.
+
+2.2  « Marque » désigne les noms « RandoFile » et « HM File Randomizer », le
+     logo, l'icône de l'application et l'apparence de l'interface.
+
+2.3  « Auteur » désigne Hossein Moradi, l'auteur et le détenteur des droits
+     d'auteur.
+
+2.4  « Vous » désigne l'Utilisateur, ainsi que toute organisation pour le
+     compte de laquelle l'Utilisateur agit.
+
+
+3. LICENCE D'UTILISATION DU LOGICIEL
+
+3.1  L'Auteur vous accorde une licence perpétuelle, mondiale, non exclusive et
+     gratuite pour utiliser, copier, modifier et redistribuer le Logiciel, sous
+     les termes de la Licence MIT reproduite à la section 4. La section 4
+     constitue l'intégralité des droits que l'Auteur vous accorde.
+
+3.2  Les sections 5 à 10 décrivent la manière dont l'Auteur souhaite que le
+     Logiciel soit utilisé. Rien dans ces sections ne réduit, ne limite ni ne
+     remplace les permissions accordées par la Licence MIT, et aucune partie du
+     Logiciel ne peut être relicenciée ou retirée sur leur fondement.
+
+
+4. LA LICENCE MIT, REPRODUITE INTÉGRALEMENT
+
+MIT License
+
+Copyright (c) 2026 Hossein Moradi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+(Le texte ci-dessus est celui de la Licence MIT, dans sa langue d'origine.)
+
+
+5. PROPRIÉTÉ DU NOM ET DU LOGO
+
+5.1  Le Logiciel est open source. La Marque ne fait pas partie de cette cession.
+     Les noms « RandoFile » et « HM File Randomizer », le logo et l'icône
+     demeurent la propriété de l'Auteur.
+
+5.2  Vous pouvez utiliser la Marque pour désigner honnêtement le Logiciel et pour
+     indiquer que votre propre travail en est issu. Vous ne pouvez pas l'utiliser
+     d'une manière qui laisserait croire que le Logiciel a été créé, approuvé ou
+     maintenu par une autre personne que l'Auteur.
+
+
+6. UTILISATION ACCEPTABLE
+
+La Licence MIT est permissive. L'Auteur demande néanmoins que les points
+suivants restent vrais et propose le Logiciel en ce sens :
+
+6.1  Attribution. L'avis de droit d'auteur et les coordonnées de l'Auteur
+     accompagnent toute copie ou toute partie substantielle du Logiciel que vous
+     redistribuez, comme la Licence MIT l'exige déjà.
+
+6.2  Distribution loyale. Ne vendez pas le Logiciel, ne l'intégrez pas à un
+     produit commercial et ne présentez pas une version modifiée comme étant
+     l'œuvre de l'Auteur.
+
+6.3  Ne le renommez pas. Redistribuez le Logiciel sous son propre nom.
+
+6.4  Sauvegardez vos fichiers. Le Logiciel renomme des fichiers sur votre disque.
+     Conservez une sauvegarde de ce que vous ne pouvez pas perdre.
+
+
+7. EXCLUSION DES GARANTIES
+
+7.1  Le Logiciel est fourni « tel quel », sans garantie d'aucune sorte, expresse
+     ou implicite, y compris mais sans limitation les garanties de valeur
+     marchande, d'aptitude à un usage particulier et de non-atteinte aux
+     droits d'autrui, comme énoncé intégralement à la section 4.
+
+7.2  L'Auteur ne garantit pas que le Logiciel sera exempt d'erreurs, ininterrompu
+     ou adapté à un usage particulier.
+
+
+8. LIMITATION DE RESPONSABILITÉ
+
+8.1  Dans la limite permise par la loi applicable, l'Auteur ne saurait être tenu
+     responsable d'aucune perte ou dommage direct ou indirect résultant de
+     votre utilisation du Logiciel, y compris la perte de données, de bénéfices
+     ou d'opportunités.
+
+8.2  Le Logiciel renomme des fichiers. Essayez-le d'abord sur des copies.
+
+
+9. RÉSILIATION
+
+9.1  Le présent Contrat prend fin automatiquement en cas de manquement de votre
+     part. À la résiliation, vous devez cesser d'utiliser le Logiciel et le
+     supprimer.
+
+9.2  Les sections 4, 5, 7 et 8 survivent à la résiliation, ainsi que les
+     obligations qu'elles créent.
+
+
+10. RÉVISION DU PRÉSENT CONTRAT
+
+10.1 L'Auteur peut réviser le présent Contrat dans une version ultérieure du
+     Logiciel. La version affichée sur la page de licence au moment de
+     l'installation est celle qui s'applique à cette installation.
+
+
+11. CONTACT
+
+Il s'agit d'un projet personnel. S'il vous a fait gagner du temps, je serai
+heureux de vous accueillir, de suivre le travail, ou de le partager avec qui en
+a besoin.
+
+  GitHub    https://github.com/hossein-moradi-sci/hm-file-randomizer
+  LinkedIn  https://www.linkedin.com/in/hossein-moradi-sci/
+  E-mail    hossein.moradi.sci@gmail.com
+
+Merci d'utiliser RandoFile.

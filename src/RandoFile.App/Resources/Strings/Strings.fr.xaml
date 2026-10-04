@@ -157,6 +157,9 @@ vont être renommés. Continuer ?</sys:String>
     <sys:String x:Key="Help.Faq3.Q">Qu'est-ce qu'un fichier .rf_tmp_ ?</sys:String>
     <sys:String x:Key="Help.Faq3.A">Un nom de transit utilisé uniquement pendant un renommage. Il est caché et l'analyseur l'ignore, donc un résidu d'une exécution interrompue ne sera jamais renommé à nouveau.</sys:String>
 
+    <!-- ===== Splash ===== -->
+    <sys:String x:Key="Splash.Credit">Créé par Hossein Moradi</sys:String>
+
     <!-- ===== About ===== -->
     <sys:String x:Key="About.Title">À propos</sys:String>
     <sys:String x:Key="About.Creator">Créateur</sys:String>

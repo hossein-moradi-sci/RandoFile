@@ -157,6 +157,9 @@ will be renamed. Continue?</sys:String>
     <sys:String x:Key="Help.Faq3.Q">What is a .rf_tmp_ file?</sys:String>
     <sys:String x:Key="Help.Faq3.A">A staging name used only while a rename runs. It is hidden and the scanner skips it, so a leftover from an interrupted run is never renamed again.</sys:String>
 
+    <!-- ===== Splash ===== -->
+    <sys:String x:Key="Splash.Credit">Created by Hossein Moradi</sys:String>
+
     <!-- ===== About ===== -->
     <sys:String x:Key="About.Title">About</sys:String>
     <sys:String x:Key="About.Creator">Creator</sys:String>

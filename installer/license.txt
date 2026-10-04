@@ -1,0 +1,164 @@
+﻿================================================================================
+ HM File Randomizer (RandoFile)
+ End User Licence Agreement and Terms of Use
+================================================================================
+
+IMPORTANT - PLEASE READ BEFORE INSTALLING
+
+This document (the "Agreement") is between Hossein Moradi (the "Author") and
+you (the "User"), the person or organisation installing or using HM File
+Randomizer, also known as RandoFile (the "Software"). It takes effect the
+moment you install or run the Software, and it governs that use.
+
+  Contents
+    1.  Acceptance of this Agreement
+    2.  Definitions
+    3.  Licence to use the Software
+    4.  The MIT Licence, reproduced in full
+    5.  Ownership of the name and the logo
+    6.  Acceptable use
+    7.  Disclaimer of warranties
+    8.  Limitation of liability
+    9.  Termination
+    10. Revision of this Agreement
+    11. Contact
+
+
+1. ACCEPTANCE OF THIS AGREEMENT
+
+1.1  By installing, copying or using the Software you confirm that you have read
+     this Agreement, that you accept it in full, and that you are authorised to
+     do so. If you do not accept it, do not install the Software; if you have
+     already installed it, uninstall it and remove it from your computer.
+
+1.2  The Software is licensed to you, not sold to you. Ownership of the Software
+     itself never passes to you.
+
+
+2. DEFINITIONS
+
+2.1  "Software" means HM File Randomizer, including its executable, icons,
+     artwork, documentation and source code.
+
+2.2  "Brand" means the names "RandoFile" and "HM File Randomizer", the logo, the
+     application icon and the appearance of the user interface.
+
+2.3  "Author" means Hossein Moradi, the author and copyright holder.
+
+2.4  "You" means the User, and any organisation on whose behalf the User acts.
+
+
+3. LICENCE TO USE THE SOFTWARE
+
+3.1  The Author grants you a perpetual, worldwide, non-exclusive, royalty-free
+     licence to use, copy, modify and redistribute the Software, on the terms of
+     the MIT Licence reproduced in section 4. Section 4 is the whole of the rights
+     the Author grants you.
+
+3.2  Sections 5 to 10 describe how the Author asks the Software to be used.
+     Nothing in them reduces, narrows or replaces the permissions granted by the
+     MIT Licence, and no part of the Software may be relicensed or withdrawn on
+     the basis of them.
+
+
+4. THE MIT LICENCE, REPRODUCED IN FULL
+
+MIT License
+
+Copyright (c) 2026 Hossein Moradi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+5. OWNERSHIP OF THE NAME AND THE LOGO
+
+5.1  The Software is open source. The Brand is not part of that grant. The names
+     "RandoFile" and "HM File Randomizer", the logo and the icon remain the
+     property of the Author.
+
+5.2  You may use the Brand to refer truthfully to the Software, and to state
+     that your own work is based on it. You may not use it in a way that
+     suggests the Software was created, endorsed or is maintained by anyone
+     other than the Author.
+
+
+6. ACCEPTABLE USE
+
+The MIT Licence is permissive. The Author nevertheless asks that the following
+remain true, and offers the Software on that understanding:
+
+6.1  Attribution. The copyright notice and the Author's contact details travel
+     with any copy or substantial portion of the Software you redistribute, as
+     the MIT Licence already requires.
+
+6.2  Honest distribution. Do not sell the Software, bundle it into a commercial
+     product, or present a modified build as the work of the Author.
+
+6.3  Do not rename it. Redistribute the Software under its own name.
+
+6.4  Back up your files. The Software renames files on your disk. Keep a backup
+     of anything you cannot afford to lose.
+
+
+7. DISCLAIMER OF WARRANTIES
+
+7.1  The Software is provided "as is", without warranty of any kind, express or
+     implied, including but not limited to the warranties of merchantability,
+     fitness for a particular purpose and non-infringement, as set out in full in
+     section 4.
+
+7.2  The Author does not warrant that the Software will be free of errors,
+     uninterrupted, or suitable for any particular purpose.
+
+
+8. LIMITATION OF LIABILITY
+
+8.1  To the fullest extent permitted by applicable law, the Author is not liable
+     for any direct or indirect loss or damage arising from your use of the
+     Software, including lost data, lost profit or lost opportunity.
+
+8.2  The Software renames files. Try it on copies first.
+
+
+9. TERMINATION
+
+9.1  This Agreement ends automatically if you breach it. On termination you must
+     stop using the Software and remove it.
+
+9.2  Sections 4, 5, 7 and 8 survive termination, together with the obligations
+     they create.
+
+
+10. REVISION OF THIS AGREEMENT
+
+10.1 The Author may revise this Agreement in a later version of the Software. The
+     version shown on the licence page when you install is the version that
+     applies to that installation.
+
+
+11. CONTACT
+
+This is a personal project. If it saved you time, you are very welcome to get in
+touch, follow the work, or share it with someone who needs it.
+
+  GitHub    https://github.com/hossein-moradi-sci/hm-file-randomizer
+  LinkedIn  https://www.linkedin.com/in/hossein-moradi-sci/
+  Email     hossein.moradi.sci@gmail.com
+
+Thank you for using RandoFile.

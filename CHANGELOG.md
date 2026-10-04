@@ -9,6 +9,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Installer.** Every release now ships `RandoFile-Setup-<version>-win-x64.exe`, built by Inno
+  Setup in CI. It installs into `C:\Program Files\RandoFile`, where Windows keeps installed
+  programs, and asks for administrator rights once, like every other installed program. It adds a
+  Start Menu entry, an optional desktop shortcut and a real entry in *Apps & features*, and
+  upgrades an existing installation in place rather than putting a second copy beside it.
+  **No .NET runtime is required**; `/CURRENTUSER` installs it per-user without elevation.
+- The installer's wizard is translated into the same four languages as the app — English, فارسی,
+  Français, العربية — with Persian and Arabic laid out right-to-left, and it auto-detects the
+  machine language to preselect one.
+- A **licence agreement page** before anything is copied, rewritten as a proper agreement rather
+  than a list of rules: what it is, who it is between, acceptance, definitions, the licence
+  grant, the MIT terms in full, ownership of the name and the logo, acceptable use, the warranty
+  disclaimer, the limitation of liability, termination, revision and contact. The author's
+  requests are kept separate from the MIT grant and cannot narrow it. The agreement is **shown in
+  the language the wizard is running in**, and every translation is installed next to the
+  executable, as MIT requires.
+- The finish page credits the version, the author, the project, LinkedIn and email.
+- A **file association** the user opts into on the *Select Additional Tasks* page: RandoFile appears
+  in the **Open with** menu for every folder and file and in Windows' *Default apps*, and the
+  wizard opens that settings page so it can be chosen as the default handler. Nothing is forced —
+  Windows protects the default-handler choice itself, and the installer never writes it. The
+  program opens the folder it is handed, or the folder a handed file lives in.
+- The finish page now offers to **open the folder** RandoFile was installed into and to **open the
+  project page** on GitHub, beside launching the app. All three start ticked and can be cleared,
+  and they are skipped by a silent install.
+- **Code signing** in the release workflow, switched on by adding two repository secrets
+  (`WINDOWS_CERT_PFX_BASE64`, `WINDOWS_CERT_PASSWORD`). When a certificate is configured the
+  published executable is signed before Inno Setup packages it and the installer afterwards, with a
+  timestamp on every signature; without one the release is simply published unsigned, so a tag
+  still builds. Locally the certificate goes at `certificates\code-signing.pfx` (ignored by git, so
+  a private key cannot be committed), or an already installed certificate is used with
+  `tools\Sign-Release.ps1 -Thumbprint`.
+
+
+### Fixed
+
+- The installer's finish page credits were silently discarded: the caption was assigned from
+  `CurStepChanged(ssPostInstall)`, which Inno overwrites when it builds the finish page. They now
+  come from `CurPageChanged(wpFinished)`.
+- Removed the *"Select Setup Install Mode"* page that appeared for administrator accounts: the
+  default is already the machine-wide install into `C:\Program Files\RandoFile`, so the page asked
+  a question the default answers.
+- Uninstalling left five empty registry keys behind. Inno Setup removes the values it wrote but
+  keeps a key that is not marked `uninsdeletekey`, so *Open with* retained an `Applications`
+  entry and two `OpenWithProgids` references after the program was gone. Every association entry
+  is now marked, and a guard fails the build if one loses the flag.
+
 - In-app help, reachable from the `?` button in the header, from Settings and from `F1` anywhere in
   the app. Four tabs — Getting started, Naming pattern, Shortcuts & safety and FAQ — fully
   translated into Persian, English, French and Arabic.
@@ -27,6 +74,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   slow endless loop. The card sits in a breathing ambient glow, each document casts a real blurred
   shadow, the ring carries a gradient stroke over a halo with a lit arrow head, and the brand name
   is set in a gradient.
+- The splash intro was stretched to roughly twice its length: the screen now holds for at least
+  4.5 s, so the animation reads as an opening rather than a flash.
+- A neon credit badge sits under the brand: a rounded frame stroked cyan → violet → magenta, a
+  blurred glow behind it, four bright corner brackets, and the name set in a neon gradient. Its
+  corners flicker like a lit sign once it has arrived. It says **Created by Hossein Moradi** in
+  English, **ساخته‌شده توسط حسین مرادی** in Persian, and the equivalent sentence in French and
+  Arabic — it follows the interface language.
+- A fresh installation now opens in **English**. The language only changes once it is picked in
+  Settings; nothing is guessed from the machine locale.
 - **The brand name is never translated.** `App.Title` / `App.Tagline` were removed from all four
   language files; the interface now reads the `AppInfo.Brand` and `AppInfo.Tagline` constants.
 - Animated splash screen on launch: the logo scales and rotates in, a highlight sweeps across it,

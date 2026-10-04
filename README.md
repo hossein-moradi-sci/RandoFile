@@ -32,23 +32,46 @@ It ships as a standalone `.exe` and never runs in a browser.
 | **Automatic rollback** | If a file fails, everything already renamed is restored. |
 | **Undo** | One click reverts the last successful run. |
 | **Progress & cancellation** | Progress bar plus a cancel button that rolls back cleanly. |
-| **Animated splash** | The logo plays an intro on launch, then hands over to the main window. |
+| **Animated splash** | A four-and-a-half second opening: the logo assembles itself, settles with a soft overshoot, then keeps breathing while a glowing neon credit badge lights up underneath. |
 | **Four languages** | فارسی · English · Français · العربية, with full RTL for Persian and Arabic. |
 | **Themes** | Light, dark, or follow the Windows setting. |
 | **Update check** | Reads GitHub Releases and shows a banner when a newer version exists. |
 
 ---
 
-## Download
+## Download and install
 
 Grab the latest build from the
 [Releases page](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest).
 
-1. Download `RandoFile-<version>-win-x64.zip`
-2. Extract it anywhere you like
-3. Run `RandoFile.exe`
+**The installer (recommended)**
 
-No .NET installation is required — the published build is self-contained.
+1. Download `RandoFile-Setup-<version>-win-x64.exe`
+2. Double-click it, pick your language, accept the licence
+3. Accept the one Windows *User Account Control* prompt
+4. Press Install
+
+RandoFile installs into `C:\Program Files\RandoFile`, where Windows keeps installed programs,
+with a Start Menu entry, an optional desktop shortcut and a proper entry in *Apps & features*
+for uninstalling. **No .NET runtime is required**, and installing a later version over an
+earlier one just replaces it. The agreement on the licence page is shown **in the language you
+picked for the installer**, and every translation is installed next to the executable.
+
+The wizard also offers two optional tasks: a desktop shortcut, and registering RandoFile in the
+**Open with** menu for every folder and file, which is what lets you pick it in Windows' *Default
+apps* — nothing is forced, and uninstalling removes everything it added. When Setup finishes, its
+last page offers to launch RandoFile, open the folder it was installed into, and open this project
+page.
+
+Prefer no elevation at all? The setup accepts `/CURRENTUSER`, which installs it under your
+profile instead of Program Files.
+
+**Portable, if you prefer**
+
+`RandoFile-<version>-win-x64.zip` is the same program without an installer: unzip it anywhere and
+run `RandoFile.exe`.
+
+Both are self-contained, so they run on any Windows 10 or 11 machine.
 
 ---
 
@@ -167,6 +190,13 @@ src/
     Assets/Brand/                Logo and Windows icon
 tests/
   RandoFile.Tests/               xUnit suite for the engine, brand, resources and XAML bindings
+installer/
+  randofile.iss                  Inno Setup script: the installer people download from a release
+  license.txt                    The agreement, in English
+  license.farsi.txt              The same agreement, in Persian
+  license.french.txt             ... in French
+  license.arabic.txt             ... in Arabic
+  lang/                          Wizard strings: english, farsi, french, arabic
 tools/
   Generate-Logo.ps1              Draws the brand mark and writes the PNG/ICO assets
 ```
@@ -186,7 +216,7 @@ executor (swaps, cycles, rollback, cancellation, undo, no leftover temporary fil
 scanner, version comparison for the update check, resource parity across all four languages, the
 brand identity rules, and the XAML bindings.
 
-Two of those guards exist because of bugs that reached a published build:
+Some of those guards exist because of bugs that reached a published build:
 
 - **Two-way bindings to read-only properties.** WPF binds `ProgressBar.Value`, `TextBox.Text` and
   `ToggleButton.IsChecked` two-way *by default*, so pointing them at a computed view-model property
@@ -194,6 +224,23 @@ Two of those guards exist because of bugs that reached a published build:
   opening. Any new binding on those properties needs an explicit `Mode=OneWay` or a public setter.
 - **The brand must stay out of the language files.** `BrandIdentityTests` fails if "RandoFile"
   ever appears in a `Strings.*.xaml` value, because a translator could then rename or drop it.
+
+The splash has its own timing guard: the screen may not close until every storyboard in it has
+finished, and the credit line has to stay settled and readable for at least a second and a half
+afterwards, so a beat can never be cut off half way and turn the opening into a flicker.
+
+`InstallerScriptTests` guards the Inno Setup script the same way. It is only compiled in CI, so
+these failures would otherwise surface at release time: a stale version in the installer, an `AppId`
+that stopped being a GUID (which silently gives every user a second copy instead of an upgrade), a
+wizard language missing from the script, or a half-finished translation that Inno Setup would
+quietly fall back to English for.
+
+The wizard itself is verified by running it. `scripts-verify/verify-assoc.ps1` installs per-user
+(`/CURRENTUSER`, so no UAC prompt) with the association task, reads every registry entry back,
+then installs without the task and uninstalls — checking in each case that exactly the right keys
+exist. `scripts-verify/verify-finish-page.ps1` walks the real wizard to its last page and confirms
+that the three options are there and that clicking Finish opens the app, the install folder and the
+project page.
 
 ---
 
@@ -206,6 +253,55 @@ Releases follow [Semantic Versioning](https://semver.org/). Publishing is automa
 `v*` tag builds the executable and creates a GitHub Release. Because the app already reads
 `releases/latest` and compares versions with a normalised SemVer parser, adding a fully automatic
 update download is a small follow-up step.
+
+### Code signing
+
+Releases are published **unsigned by default**, which is why Windows SmartScreen warns about the
+installer until a certificate is configured. When one is, the workflow signs twice: the published
+`RandoFile.exe` before Inno Setup packages it, and the installer afterwards — a signed program
+inside an unsigned installer does not make the download trusted on its own. Every signature is
+timestamped, so it stays valid after the certificate expires.
+
+Two repository secrets turn it on (*Settings → Secrets and variables → Actions*):
+
+| Secret | Value |
+|---|---|
+| `WINDOWS_CERT_PFX_BASE64` | your certificate as a `.pfx`, base64 encoded |
+| `WINDOWS_CERT_PASSWORD` | the password for that `.pfx` |
+
+To produce the first one from a local certificate:
+
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes('certificates\code-signing.pfx')) | Set-Clipboard
+```
+
+For a release built on your own machine, put the certificate at `certificates\code-signing.pfx` —
+that exact path is where [`tools/Sign-Release.ps1`](tools/Sign-Release.ps1) looks for it, and
+`certificates/` is ignored by git so a private key can never be committed — and run:
+
+```powershell
+tools\Sign-Release.ps1 -Files dist\installer\RandoFile-Setup-v1.0.0-win-x64.exe
+```
+
+If the file is password protected, add `-Password <password>` (or set `RANDOFILE_CERT_PASSWORD`).
+When the certificate is installed in the Windows certificate store instead — which is where a
+hardware token or a signing service's client puts it — sign by thumbprint:
+
+```powershell
+tools\Sign-Release.ps1 -Files dist\win-x64\RandoFile.exe -Thumbprint <thumbprint>
+```
+
+Since June 2023 a publicly trusted certificate authority is not allowed to issue an exportable
+private key: it has to live on a hardware token, an HSM, or a cloud signing service. A public
+certificate therefore usually takes the `-Thumbprint` route, while the `.pfx` route suits
+self-signed and internally trusted certificates. Cloud services (Azure Trusted Signing, DigiCert
+KeyLocker, SSL.com eSigner) sign through their own tool, which takes the place of the two signing
+steps in the workflow.
+
+`scripts-verify/verify-signing.ps1` proves the whole route on a machine with no certificate at
+all: it creates a throwaway self-signed certificate, signs a **copy** of the published executable,
+checks that the signature carries a timestamp, and removes the certificate, the `.pfx` and the copy
+again.
 
 See [CHANGELOG.md](CHANGELOG.md) for the release history.
 

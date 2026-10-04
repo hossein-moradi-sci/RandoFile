@@ -71,9 +71,17 @@ secrets.json
 github-profile/
 .freebuff/
 
+# Agent notes: machine paths, local commit ids and personal preferences. Useful locally,
+# nobody else's business in a public repository.
+/AGENTS.md
+
 ## Local app data written next to the repo
 *.log
 setting.json
+
+## Code-signing material: a private key must never be committed
+/certificates/
+*.pfx
 
 ## Installer / packaged output
 /dist/

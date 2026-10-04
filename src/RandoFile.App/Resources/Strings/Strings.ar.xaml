@@ -157,6 +157,9 @@
     <sys:String x:Key="Help.Faq3.Q">ما ملف ‎.rf_tmp_‎؟</sys:String>
     <sys:String x:Key="Help.Faq3.A">اسم مؤقت يُستخدم أثناء إعادة التسمية فقط. إنه مخفي ويتجاهله الماسح، لذلك لا يُعاد ترتيب بقايا عملية توقفت في منتصفها من قبل.</sys:String>
 
+    <!-- ===== Splash ===== -->
+    <sys:String x:Key="Splash.Credit">صُنع بواسطة حسين مرادي</sys:String>
+
     <!-- ===== About ===== -->
     <sys:String x:Key="About.Title">حول</sys:String>
     <sys:String x:Key="About.Creator">المُنشئ</sys:String>

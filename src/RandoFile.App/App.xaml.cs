@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using RandoFile.App.Services;
+using RandoFile.Core;
 using RandoFile.App.Views;
 
 namespace RandoFile.App;
@@ -33,6 +34,16 @@ public partial class App : Application
             splash.Show();
 
             Settings = SettingsStore.Load();
+
+            // Windows can launch the app with a path, which is how a file association, a
+            // shortcut or "Open with" reaches it. The folder that path names wins over the one
+            // remembered from last time, because it is the one the user just asked for.
+            var requestedFolder = CommandLineTarget.ResolveFolderFromArguments(e.Args);
+
+            if (requestedFolder is not null)
+            {
+                Settings.LastFolder = requestedFolder;
+            }
 
             // Theme first, then language, so the very first frame of the main window is correct.
             ThemeService.Apply(ThemeService.Parse(Settings.Theme));

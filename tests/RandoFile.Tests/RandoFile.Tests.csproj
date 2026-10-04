@@ -49,6 +49,10 @@
     <None Include="..\..\src\RandoFile.App\Views\*.xaml"
           Link="Xaml\%(Filename)%(Extension)"
           CopyToOutputDirectory="PreserveNewest" />
+    <!-- The splash reads its own floor duration out of this file to check the intro is not cut short. -->
+    <None Include="..\..\src\RandoFile.App\Views\SplashWindow.xaml.cs"
+          Link="Code\SplashWindow.xaml.cs"
+          CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

@@ -157,6 +157,9 @@
     <sys:String x:Key="Help.Faq3.Q">فایل ‎.rf_tmp_‎ چیست؟</sys:String>
     <sys:String x:Key="Help.Faq3.A">نامی موقت است که فقط هنگام اجرای تغییر نام استفاده می‌شود. این نام پنهان است و اسکنر آن را نادیده می‌گیرد، پس بازماندهٔ یک اجرای نیمه‌کاره هرگز دوباره تغییر نام نمی‌خورد.</sys:String>
 
+    <!-- ===== Splash ===== -->
+    <sys:String x:Key="Splash.Credit">ساخته‌شده توسط حسین مرادی</sys:String>
+
     <!-- ===== About ===== -->
     <sys:String x:Key="About.Title">درباره</sys:String>
     <sys:String x:Key="About.Creator">سازنده</sys:String>

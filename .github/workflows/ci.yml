@@ -53,6 +53,13 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
 
+    # Both are optional. With them the release is signed and timestamped; without them the signing
+    # steps report an unsigned build and the tag still produces a release. See "Code signing" in
+    # README.md for how to produce them from your own certificate.
+    env:
+      RANDOFILE_CERT_PFX_BASE64: ${{ secrets.WINDOWS_CERT_PFX_BASE64 }}
+      RANDOFILE_CERT_PASSWORD: ${{ secrets.WINDOWS_CERT_PASSWORD }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -71,9 +78,41 @@ jobs:
           -p:DebugType=None
           -o dist/win-x64
 
+      # Signed before the installer and the zip are built, so the copy inside both is signed too.
+      # Without a certificate the script warns and exits successfully rather than failing the tag.
+      - name: Sign the published executable
+        shell: pwsh
+        run: tools/Sign-Release.ps1 -Files dist/win-x64/RandoFile.exe
+
+      # The installer is what most people download. Inno Setup is not on the runner image, so it is
+      # installed here rather than on a developer machine.
+      - name: Install Inno Setup
+        run: choco install innosetup --yes --no-progress --limit-output
+
+      - name: Build the installer
+        shell: pwsh
+        run: |
+          # The tag is v1.0.0. Inno gets the bare number for its version machinery and the
+          # full tag for the file name, so the installer and the zip are named alike.
+          $version = $env:GITHUB_REF_NAME -replace '^v', ''
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" `
+            "/DAppVersion=$version" `
+            "/DReleaseTag=$env:GITHUB_REF_NAME" `
+            installer/randofile.iss
+          if ($LASTEXITCODE -ne 0) { throw "ISCC failed with exit code $LASTEXITCODE" }
+          Get-ChildItem dist/installer/*.exe | ForEach-Object { Write-Host "ASSET=$($_.Name)" }
+
+      # A signed executable inside an unsigned installer does not make the download trusted, so the
+      # setup file is signed as well.
+      - name: Sign the installer
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem dist/installer/*.exe | Select-Object -First 1 -ExpandProperty FullName
+          tools/Sign-Release.ps1 -Files $installer
+
       # The asset name keeps the tag exactly as pushed (e.g. RandoFile-v1.0.0-win-x64.zip) so the
       # release step below can reference it without re-deriving the version.
-      - name: Package
+      - name: Package portable zip
         shell: pwsh
         run: |
           $zip = "RandoFile-$env:GITHUB_REF_NAME-win-x64.zip"
@@ -84,15 +123,38 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: randofile-win-x64
-          path: '*.zip'
+          path: |
+            '*.zip'
+            'dist/installer/*.exe'
           if-no-files-found: error
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
+          # The hand written install notes go above the auto generated "What's Changed" rather
+          # than replacing it, which is what happens without this.
+          append_body: true
           draft: false
           prerelease: ${{ contains(github.ref_name, '-') }}
+          # The installer comes first: it is what a normal user wants. The zip stays available for
+          # people who prefer a portable copy, and the bare exe for the single file itself.
           files: |
+            dist/installer/RandoFile-Setup-${{ github.ref_name }}-win-x64.exe
             RandoFile-${{ github.ref_name }}-win-x64.zip
             dist/win-x64/RandoFile.exe
+          body: |
+            ## Installing
+
+            **RandoFile-Setup-${{ github.ref_name }}-win-x64.exe** is the installer.
+            Double-click it, choose your language, accept the licence and confirm the one Windows
+            administrator prompt: RandoFile installs into `C:\Program Files\RandoFile` with a Start
+            Menu entry, an optional file association and an uninstaller. No .NET runtime is
+            required. `/CURRENTUSER` installs it for your account only, without elevation.
+
+            Prefer to skip the installer? `RandoFile-${{ github.ref_name }}-win-x64.zip` is the
+            portable build: unzip it anywhere and run `RandoFile.exe`.
+
+            Made by **Hossein Moradi** — [project](https://github.com/hossein-moradi-sci/hm-file-randomizer) ·
+            [LinkedIn](https://www.linkedin.com/in/hossein-moradi-sci/) ·
+            [email](mailto:hossein.moradi.sci@gmail.com)

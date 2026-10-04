@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using RandoFile.App.Services;
 
 namespace RandoFile.Core.Tests;
 
@@ -17,6 +18,16 @@ public class LocalizationResourceTests
     private static readonly XNamespace XamlNamespace = "http://schemas.microsoft.com/winfx/2006/xaml";
 
     private static readonly XNamespace StringNamespace = "clr-namespace:System;assembly=mscorlib";
+
+    [Fact]
+    public void A_fresh_installation_opens_in_english()
+    {
+        // English until the user says otherwise: nothing may guess a language from the machine.
+        var settings = new AppSettings();
+
+        Assert.Equal("en", settings.Language);
+        Assert.Contains(settings.Language, Languages, StringComparer.OrdinalIgnoreCase);
+    }
 
     [Fact]
     public void Every_language_defines_exactly_the_same_keys()

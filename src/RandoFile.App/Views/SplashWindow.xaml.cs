@@ -8,12 +8,13 @@ namespace RandoFile.App.Views;
 
 /// <summary>
 /// Animated brand screen shown while the main window is being created. It stays visible for at least
-/// <see cref="MinimumDuration"/> so the intro never flashes past, then fades out and closes.
+/// <see cref="MinimumDuration"/> so the intro never flashes past and the credit line at the bottom
+/// stays up long enough to be read, then fades out and closes.
 /// </summary>
 public partial class SplashWindow : Window
 {
     /// <summary>Lower bound for the intro; longer startup simply extends the splash.</summary>
-    private static readonly TimeSpan MinimumDuration = TimeSpan.FromMilliseconds(1500);
+    private static readonly TimeSpan MinimumDuration = TimeSpan.FromMilliseconds(4500);
 
     /// <summary>
     /// The loops that never end on their own. They are kept so they can all be stopped before the
@@ -27,6 +28,7 @@ public partial class SplashWindow : Window
         "HeroCardLoop",
         "ShimmerLoop",
         "TrackLoop",
+        "CreditLoop",
     ];
 
     private readonly List<Storyboard> _loops = [];

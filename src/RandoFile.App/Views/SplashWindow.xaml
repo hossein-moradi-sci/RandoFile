@@ -5,7 +5,7 @@
         Title="{x:Static core:AppInfo.Brand}"
         Icon="pack://application:,,,/Assets/Brand/logo-mark.png"
         Width="500"
-        Height="440"
+        Height="470"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
@@ -43,25 +43,44 @@
             <GradientStop Color="#FFFFFF" Offset="0" />
             <GradientStop Color="#D6DEFF" Offset="1" />
         </LinearGradientBrush>
+        <!--
+            Credit palette: a neon sign. The frame stroke is fully opaque so the corners read as
+            corners, the fill stays dark so the text has contrast, and the ink is the brightest
+            thing on the card after the brand.
+        -->
+        <LinearGradientBrush x:Key="CreditEdge" StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientStop Color="#FF22E6FF" Offset="0" />
+            <GradientStop Color="#FF7C5CFF" Offset="0.5" />
+            <GradientStop Color="#FFFF4DD6" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="CreditInk" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#FF45E9FF" Offset="0" />
+            <GradientStop Color="#FF9CF4FF" Offset="0.35" />
+            <GradientStop Color="#FFFFFFFF" Offset="0.5" />
+            <GradientStop Color="#FFC3B4FF" Offset="0.65" />
+            <GradientStop Color="#FF9B6BFF" Offset="1" />
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="CreditFill" Color="#B2121B36" />
+        <SolidColorBrush x:Key="CreditTick" Color="#FF6FF0FF" />
 
         <!-- Intro: the parts arrive one after another, then the mark settles with one soft bounce. -->
         <Storyboard x:Key="FanIntro" FillBehavior="HoldEnd">
             <DoubleAnimation Storyboard.TargetName="Stage"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.30" />
+                             From="0" To="1" Duration="0:0:0.57" />
             <DoubleAnimation Storyboard.TargetName="Glow"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.70" />
+                             From="0" To="1" Duration="0:0:1.33" />
             <DoubleAnimation Storyboard.TargetName="GlowPop"
                              Storyboard.TargetProperty="ScaleX"
-                             From="0.62" To="1" Duration="0:0:0.85" BeginTime="0:0:0.05">
+                             From="0.62" To="1" Duration="0:0:1.62" BeginTime="0:0:0.10">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="GlowPop"
                              Storyboard.TargetProperty="ScaleY"
-                             From="0.62" To="1" Duration="0:0:0.85" BeginTime="0:0:0.05">
+                             From="0.62" To="1" Duration="0:0:1.62" BeginTime="0:0:0.10">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
@@ -69,39 +88,39 @@
 
             <DoubleAnimation Storyboard.TargetName="RingTilt"
                              Storyboard.TargetProperty="Angle"
-                             From="-72" To="0" Duration="0:0:0.90" BeginTime="0:0:0.06">
+                             From="-72" To="0" Duration="0:0:1.71" BeginTime="0:0:0.11">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="RingFade"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.45" BeginTime="0:0:0.06" />
+                             From="0" To="1" Duration="0:0:0.86" BeginTime="0:0:0.11" />
 
             <DoubleAnimation Storyboard.TargetName="LeftSlide"
                              Storyboard.TargetProperty="X"
-                             From="-64" To="0" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                             From="-64" To="0" Duration="0:0:1.18" BeginTime="0:0:0.23">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="LeftTilt"
                              Storyboard.TargetProperty="Angle"
-                             From="-78" To="-26" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                             From="-78" To="-26" Duration="0:0:1.18" BeginTime="0:0:0.23">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="LeftScale"
                              Storyboard.TargetProperty="ScaleX"
-                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                             From="0.48" To="1" Duration="0:0:1.18" BeginTime="0:0:0.23">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.28" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="LeftScale"
                              Storyboard.TargetProperty="ScaleY"
-                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.12">
+                             From="0.48" To="1" Duration="0:0:1.18" BeginTime="0:0:0.23">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.28" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
@@ -109,28 +128,28 @@
 
             <DoubleAnimation Storyboard.TargetName="RightSlide"
                              Storyboard.TargetProperty="X"
-                             From="64" To="0" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                             From="64" To="0" Duration="0:0:1.18" BeginTime="0:0:0.38">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="RightTilt"
                              Storyboard.TargetProperty="Angle"
-                             From="78" To="26" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                             From="78" To="26" Duration="0:0:1.18" BeginTime="0:0:0.38">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="RightScale"
                              Storyboard.TargetProperty="ScaleX"
-                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                             From="0.48" To="1" Duration="0:0:1.18" BeginTime="0:0:0.38">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.28" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="RightScale"
                              Storyboard.TargetProperty="ScaleY"
-                             From="0.48" To="1" Duration="0:0:0.62" BeginTime="0:0:0.20">
+                             From="0.48" To="1" Duration="0:0:1.18" BeginTime="0:0:0.38">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.28" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
@@ -138,28 +157,28 @@
 
             <DoubleAnimation Storyboard.TargetName="HeroSlide"
                              Storyboard.TargetProperty="Y"
-                             From="86" To="0" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                             From="86" To="0" Duration="0:0:1.33" BeginTime="0:0:0.53">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="HeroTilt"
                              Storyboard.TargetProperty="Angle"
-                             From="-24" To="0" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                             From="-24" To="0" Duration="0:0:1.33" BeginTime="0:0:0.53">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="HeroScale"
                              Storyboard.TargetProperty="ScaleX"
-                             From="0.54" To="1" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                             From="0.54" To="1" Duration="0:0:1.33" BeginTime="0:0:0.53">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.22" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="HeroScale"
                              Storyboard.TargetProperty="ScaleY"
-                             From="0.54" To="1" Duration="0:0:0.70" BeginTime="0:0:0.28">
+                             From="0.54" To="1" Duration="0:0:1.33" BeginTime="0:0:0.53">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.22" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
@@ -168,41 +187,63 @@
             <!-- One soft overshoot once everything has landed: the detail that reads as expensive. -->
             <DoubleAnimation Storyboard.TargetName="MarkScale"
                              Storyboard.TargetProperty="ScaleX"
-                             From="1.055" To="1" Duration="0:0:0.55" BeginTime="0:0:0.90">
+                             From="1.055" To="1" Duration="0:0:1.05" BeginTime="0:0:1.71">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.18" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="MarkScale"
                              Storyboard.TargetProperty="ScaleY"
-                             From="1.055" To="1" Duration="0:0:0.55" BeginTime="0:0:0.90">
+                             From="1.055" To="1" Duration="0:0:1.05" BeginTime="0:0:1.71">
                 <DoubleAnimation.EasingFunction>
                     <BackEase Amplitude="0.18" EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
         </Storyboard>
 
-        <Storyboard x:Key="TextIntro" BeginTime="0:0:0.52" FillBehavior="HoldEnd">
+        <Storyboard x:Key="TextIntro" BeginTime="0:0:0.99" FillBehavior="HoldEnd">
             <DoubleAnimation Storyboard.TargetName="BrandText"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.45" />
+                             From="0" To="1" Duration="0:0:0.86" />
             <DoubleAnimation Storyboard.TargetName="BrandText"
                              Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
-                             From="12" To="0" Duration="0:0:0.50">
+                             From="14" To="0" Duration="0:0:0.95">
                 <DoubleAnimation.EasingFunction>
                     <CubicEase EasingMode="EaseOut" />
                 </DoubleAnimation.EasingFunction>
             </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="TaglineText"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.45" />
+                             From="0" To="1" Duration="0:0:0.86" BeginTime="0:0:0.30" />
+
+            <!--
+                The credit arrives early and finishes well before the splash closes, because it is
+                the one line the user is meant to actually read.
+            -->
+            <DoubleAnimation Storyboard.TargetName="CreditBadge"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.65" BeginTime="0:0:0.45" />
+            <DoubleAnimation Storyboard.TargetName="CreditPop"
+                             Storyboard.TargetProperty="ScaleX"
+                             From="0.88" To="1" Duration="0:0:0.85" BeginTime="0:0:0.45">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.30" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="CreditPop"
+                             Storyboard.TargetProperty="ScaleY"
+                             From="0.88" To="1" Duration="0:0:0.85" BeginTime="0:0:0.45">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase Amplitude="0.30" EasingMode="EaseOut" />
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
             <DoubleAnimation Storyboard.TargetName="TrackSlider"
                              Storyboard.TargetProperty="Opacity"
-                             From="0" To="1" Duration="0:0:0.35" />
+                             From="0" To="1" Duration="0:0:0.67" />
         </Storyboard>
 
         <!-- Endless loops, kept so they can be stopped before the window closes. -->
-        <Storyboard x:Key="RingLoop" BeginTime="0:0:1.00" RepeatBehavior="Forever">
+        <Storyboard x:Key="RingLoop" BeginTime="0:0:1.90" RepeatBehavior="Forever">
             <DoubleAnimation Storyboard.TargetName="RingSpin"
                              Storyboard.TargetProperty="Angle"
                              From="0" To="360" Duration="0:0:11" />
@@ -212,7 +253,7 @@
                              AutoReverse="True" RepeatBehavior="Forever" />
         </Storyboard>
 
-        <Storyboard x:Key="GlowLoop" BeginTime="0:0:1.10" RepeatBehavior="Forever" AutoReverse="True">
+        <Storyboard x:Key="GlowLoop" BeginTime="0:0:2.09" RepeatBehavior="Forever" AutoReverse="True">
             <DoubleAnimation Storyboard.TargetName="Glow"
                              Storyboard.TargetProperty="Opacity"
                              From="0.72" To="1" Duration="0:0:4.2" />
@@ -225,7 +266,7 @@
         </Storyboard>
 
         <!-- The fan never sits still: the side cards swing out of phase, the hero card breathes. -->
-        <Storyboard x:Key="LeftCardLoop" BeginTime="0:0:1.20" RepeatBehavior="Forever" AutoReverse="True">
+        <Storyboard x:Key="LeftCardLoop" BeginTime="0:0:2.28" RepeatBehavior="Forever" AutoReverse="True">
             <DoubleAnimation Storyboard.TargetName="LeftWobble"
                              Storyboard.TargetProperty="Angle"
                              From="0" To="5.5" Duration="0:0:2.0" />
@@ -234,7 +275,7 @@
                              From="0" To="-5" Duration="0:0:2.0" />
         </Storyboard>
 
-        <Storyboard x:Key="RightCardLoop" BeginTime="0:0:1.62" RepeatBehavior="Forever" AutoReverse="True">
+        <Storyboard x:Key="RightCardLoop" BeginTime="0:0:3.08" RepeatBehavior="Forever" AutoReverse="True">
             <DoubleAnimation Storyboard.TargetName="RightWobble"
                              Storyboard.TargetProperty="Angle"
                              From="0" To="-5.5" Duration="0:0:2.0" />
@@ -243,7 +284,7 @@
                              From="0" To="-5" Duration="0:0:2.0" />
         </Storyboard>
 
-        <Storyboard x:Key="HeroCardLoop" BeginTime="0:0:1.38" RepeatBehavior="Forever" AutoReverse="True">
+        <Storyboard x:Key="HeroCardLoop" BeginTime="0:0:2.62" RepeatBehavior="Forever" AutoReverse="True">
             <DoubleAnimation Storyboard.TargetName="HeroFloat"
                              Storyboard.TargetProperty="Y"
                              From="0" To="-6" Duration="0:0:1.6" />
@@ -256,10 +297,20 @@
         </Storyboard>
 
         <!-- Highlight sweeping across the mark while the window loads. -->
-        <Storyboard x:Key="ShimmerLoop" BeginTime="0:0:1.30" RepeatBehavior="Forever">
+        <Storyboard x:Key="ShimmerLoop" BeginTime="0:0:2.47" RepeatBehavior="Forever">
             <DoubleAnimation Storyboard.TargetName="Shimmer"
                              Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
                              From="-320" To="340" Duration="0:0:3.0" />
+        </Storyboard>
+
+        <!--
+            The neon frame flickers the way a sign does. It only starts once the intro has finished
+            scaling the badge in, so the two never drive the same element at the same time.
+        -->
+        <Storyboard x:Key="CreditLoop" BeginTime="0:0:2.40" RepeatBehavior="Forever" AutoReverse="True">
+            <DoubleAnimation Storyboard.TargetName="CreditTicks"
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.28" To="1" Duration="0:0:1.8" />
         </Storyboard>
 
         <Storyboard x:Key="TrackLoop" RepeatBehavior="Forever">
@@ -289,7 +340,7 @@
                 ClipToBounds="True">
             <Border.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform x:Name="CardScale" ScaleX="1" ScaleY="1" CenterX="250" CenterY="220" />
+                    <ScaleTransform x:Name="CardScale" ScaleX="1" ScaleY="1" CenterX="250" CenterY="235" />
                 </TransformGroup>
             </Border.RenderTransform>
 
@@ -527,6 +578,77 @@
                                HorizontalAlignment="Center"
                                Margin="0,7,0,0"
                                Opacity="0" />
+
+                    <!--
+                        Credit: a neon frame rather than a bare line. The rounded border makes the
+                        corners visible, the blurred drop shadow is the glow, and the four corner
+                        ticks read as the brackets of a lit sign.
+                    -->
+                    <Grid x:Name="CreditBadge"
+                          HorizontalAlignment="Center"
+                          Margin="0,18,0,0"
+                          Opacity="0"
+                          RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <ScaleTransform x:Name="CreditPop" ScaleX="0.88" ScaleY="0.88" />
+                        </Grid.RenderTransform>
+
+                        <Border x:Name="CreditFrame"
+                                CornerRadius="18"
+                                BorderThickness="1.4"
+                                Background="{StaticResource CreditFill}"
+                                BorderBrush="{StaticResource CreditEdge}"
+                                Padding="26,10,26,10">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#7C5CFF" BlurRadius="22" ShadowDepth="0" Direction="270" Opacity="0.85" />
+                            </Border.Effect>
+                            <TextBlock x:Name="CreditText"
+                                       Text="{DynamicResource Splash.Credit}"
+                                       Foreground="{StaticResource CreditInk}"
+                                       FontFamily="Segoe UI Semibold, Segoe UI"
+                                       FontSize="12.5"
+                                       HorizontalAlignment="Center" />
+                        </Border>
+
+                        <Grid x:Name="CreditTicks" IsHitTestVisible="False">
+                            <Path x:Name="CreditTickTopLeft"
+                                  Data="M 0,12 L 0,4 A 4,4 0 0 1 4,0 L 12,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  Stroke="{StaticResource CreditTick}"
+                                  StrokeThickness="1.8"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  Fill="{x:Null}" />
+                            <Path x:Name="CreditTickTopRight"
+                                  Data="M 0,0 L 8,0 A 4,4 0 0 1 12,4 L 12,12"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Top"
+                                  Stroke="{StaticResource CreditTick}"
+                                  StrokeThickness="1.8"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  Fill="{x:Null}" />
+                            <Path x:Name="CreditTickBottomLeft"
+                                  Data="M 0,0 L 0,8 A 4,4 0 0 1 4,12 L 12,12"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Bottom"
+                                  Stroke="{StaticResource CreditTick}"
+                                  StrokeThickness="1.8"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  Fill="{x:Null}" />
+                            <Path x:Name="CreditTickBottomRight"
+                                  Data="M 0,12 L 8,12 A 4,4 0 0 0 12,8 L 12,0"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Bottom"
+                                  Stroke="{StaticResource CreditTick}"
+                                  StrokeThickness="1.8"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  Fill="{x:Null}" />
+                        </Grid>
+                    </Grid>
                 </StackPanel>
 
                 <!-- Loading track -->
