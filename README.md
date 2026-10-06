@@ -7,9 +7,9 @@
 <p><b>Shuffle any folder into a truly random order — preview first, rename safely, undo with one click.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="Latest release" /></a>
-  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="Downloads" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/RandoFile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/RandoFile?label=release" alt="Latest release" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/RandoFile/total?label=downloads" alt="Downloads" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="Windows 10 / 11" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="MIT license" />
@@ -65,7 +65,7 @@ It ships as a single standalone `.exe` for Windows 10/11 and never runs in a bro
 ## ⬇️ Download and install
 
 Grab the latest build from the
-[Releases page](https://github.com/hossein-moradi-sci/randofile/releases/latest) —
+[Releases page](https://github.com/hossein-moradi-sci/RandoFile/releases/latest) —
 two clicks and you are done.
 
 **The installer (recommended)**
@@ -198,7 +198,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 Requirements: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and Windows.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/randofile.git
+git clone https://github.com/hossein-moradi-sci/RandoFile.git
 cd randofile
 
 dotnet restore RandoFile.sln
