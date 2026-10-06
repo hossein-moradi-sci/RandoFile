@@ -199,7 +199,7 @@ Requirements: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and
 
 ```powershell
 git clone https://github.com/hossein-moradi-sci/randofile.git
-cd hm-file-randomizer
+cd randofile
 
 dotnet restore RandoFile.sln
 dotnet build   RandoFile.sln -c Release --no-restore
