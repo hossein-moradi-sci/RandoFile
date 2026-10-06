@@ -9,9 +9,9 @@
 <p><b>هر پوشه را در یک ترتیب کاملاً تصادفی به‌هم می‌ریزد — اول پیش‌نمایش، بعد تغییر نام مطمئن، و با یک کلیک بازگرداندن.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="آخرین نسخه" /></a>
-  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="دانلودها" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/RandoFile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/RandoFile?label=release" alt="آخرین نسخه" /></a>
+  <a href="https://github.com/hossein-moradi-sci/RandoFile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/RandoFile/total?label=downloads" alt="دانلودها" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="ویندوز ۱۰ و ۱۱" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="مجوز MIT" />
@@ -64,7 +64,7 @@
 ## ⬇️ دانلود و نصب
 
 آخرین نسخه را از
-[صفحه Releases](https://github.com/hossein-moradi-sci/randofile/releases/latest)
+[صفحه Releases](https://github.com/hossein-moradi-sci/RandoFile/releases/latest)
 بردارید — دو کلیک و تمام.
 
 **نصب‌کننده (پیشنهادی)**
@@ -172,7 +172,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 پیش‌نیازها: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) و ویندوز.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/randofile.git
+git clone https://github.com/hossein-moradi-sci/RandoFile.git
 cd randofile
 
 dotnet restore RandoFile.sln
