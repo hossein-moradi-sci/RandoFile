@@ -7,19 +7,22 @@
 <p><b>Bouleversez n'importe quel dossier dans un ordre vraiment aléatoire — prévisualisez d'abord, renommez en toute sécurité, annulez en un clic.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/hm-file-randomizer?label=release" alt="Dernière version" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/hm-file-randomizer/total?label=downloads" alt="Téléchargements" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="Dernière version" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="Téléchargements" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="Windows 10 / 11" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="Licence MIT" />
 </p>
 
-<p>
-  <a href="README.md"><img src="https://img.shields.io/badge/English-64748B?style=for-the-badge" alt="English" /></a>
-  <a href="README.fa.md"><img src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-64748B?style=for-the-badge" alt="فارسی" /></a>
-  <a href="README.fr.md"><img src="https://img.shields.io/badge/Fran%C3%A7ais-2563EB?style=for-the-badge" alt="Français" /></a>
-  <a href="README.ar.md"><img src="https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-64748B?style=for-the-badge" alt="العربية" /></a>
+<p align="center">
+  <a href="README.md"><strong>ENGLISH</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fa.md"><strong>فارسی</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fr.md"><strong>FRANÇAIS</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.ar.md"><strong>العربية</strong></a>
 </p>
 
 </div>
@@ -30,14 +33,11 @@
 renomme l'ensemble avec un motif propre et prévisible — et vous montre un aperçu complet de
 chaque ancien → nouveau nom avant que quoi que ce soit touche votre disque.
 
-Il se présente sous la forme d'un `.exe` autonome unique pour Windows 10/11 et ne s'exécute
+Il est fourni sous la forme d’un fichier `.exe` autonome pour Windows 10/11 et ne s'exécute
 jamais dans un navigateur.
 
 > **RandoFile** est une marque. Elle n'est jamais traduite — toutes les langues l'écrivent
 > exactement pareil.
-
-> 💛 Ce README français a été rédigé directement en français, pas traduit mot à mot de
-> l'anglais : même profondeur, mais écrit pour être agréable à lire.
 
 ---
 
@@ -46,12 +46,12 @@ jamais dans un navigateur.
 | | |
 |---|---|
 | **Sélecteur de dossier avec compteur en direct** | Choisissez un dossier et voyez immédiatement combien de fichiers ont été trouvés. |
-| **Ordre vraiment aléatoire** | Mélange de Fisher–Yates : le nouvel ordre est réellement imprévisible. |
+| **Ordre vraiment aléatoire** | Mélange Fisher–Yates : le nouvel ordre est réellement imprévisible. |
 | **Tous types de fichiers** | Images, vidéos, documents — l'extension d'origine est toujours conservée. |
 | **Modèles de nommage** | `Image 1, Image 2 …`, `File 1, File 2 …` ou le préfixe de votre choix. |
 | **Maîtrise de la numérotation** | Numéro de départ et zéros facultatifs, par ex. `Image 007.jpg`. |
 | **Aperçu avant renommage** | Chaque paire ancien → nouveau est listée, avec un résumé live des changements. |
-| **Garde-fou doublons & écrasement** | Un plan contenant un conflit est refusé : rien n'est renommé. |
+| **Protection contre les doublons et l’écrasement** | Un plan contenant un conflit est refusé : rien n'est renommé. |
 | **Moteur sûr** | Renommage en deux phases (mise en staging → commit) : les échanges et cycles de noms fonctionnent. |
 | **Annulation automatique** | Si un fichier échoue, tout ce qui a déjà été renommé est restauré. |
 | **Undo** | Un clic révertit la dernière exécution réussie. |
@@ -66,7 +66,7 @@ jamais dans un navigateur.
 ## ⬇️ Téléchargement et installation
 
 Récupérez la dernière version sur la
-[page des Releases](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest) —
+[page des Releases](https://github.com/hossein-moradi-sci/randofile/releases/latest) —
 deux clics et c'est terminé.
 
 **L'installateur (recommandé)**
@@ -209,7 +209,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 Prérequis : [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) et Windows.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/hm-file-randomizer.git
+git clone https://github.com/hossein-moradi-sci/randofile.git
 cd hm-file-randomizer
 
 dotnet restore RandoFile.sln
@@ -411,6 +411,6 @@ MIT © 2026 Hossein Moradi — voir [LICENSE](LICENSE).
 
 <p>Si RandoFile vous a rendu service, offrez-lui une étoile ⭐ sur ce dépôt — ça compte vraiment.</p>
 
-<p>Fait avec 💛 par <b>Hossein Moradi</b></p>
+<p>Créé avec 💛 par <b>Hossein Moradi</b></p>
 
 </div>
