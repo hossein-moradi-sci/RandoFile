@@ -9,19 +9,22 @@
 <p><b>يخلط كل ملفات المجلد في ترتيب عشوائي حقيقي — عاين أولاً، ثم أعد التسمية بأمان، وارجع بضغطة واحدة.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/hm-file-randomizer?label=release" alt="أحدث إصدار" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/hm-file-randomizer/total?label=downloads" alt="التنزيلات" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="أحدث إصدار" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="التنزيلات" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="Windows 10 / 11" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="رخصة MIT" />
 </p>
 
-<p>
-  <a href="README.md"><img src="https://img.shields.io/badge/English-64748B?style=for-the-badge" alt="English" /></a>
-  <a href="README.fa.md"><img src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-64748B?style=for-the-badge" alt="فارسی" /></a>
-  <a href="README.fr.md"><img src="https://img.shields.io/badge/Fran%C3%A7ais-64748B?style=for-the-badge" alt="Français" /></a>
-  <a href="README.ar.md"><img src="https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-2563EB?style=for-the-badge" alt="العربية" /></a>
+<p align="center">
+  <a href="README.md"><strong>ENGLISH</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fa.md"><strong>فارسی</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fr.md"><strong>FRANÇAIS</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.ar.md"><strong>العربية</strong></a>
 </p>
 
 </div>
@@ -65,7 +68,7 @@
 ## ⬇️ التنزيل والتثبيت
 
 احصل على أحدث إصدار من
-[صفحة الإصدارات](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest) —
+[صفحة الإصدارات](https://github.com/hossein-moradi-sci/randofile/releases/latest) —
 نقرتان وتنتهي.
 
 **المثبّت (موصى به)**
@@ -157,7 +160,7 @@ Get-AuthenticodeSignature .\RandoFile-Setup-<version>-win-x64.exe |
 تصنع دورة (`a → b → c → a`). لذلك يعمل المحرّك بمرحلتين:
 
 1. **التجهيز** — ينتقل كل ملف إلى اسم مؤقت فريد (`.rf_tmp_<guid><ext>`).
-2. **التنفيذ** — عندما يصبح أي تعارف مستحيلاً، تأخذ الأسماء المؤقتة أسماءها النهائية.
+2. **التنفيذ** — بعد التأكد من عدم وجود أي تعارض، تأخذ الأسماء المؤقتة أسماءها النهائية.
 
 وإن تعثّر شيء في الطريق، تُلغى المرحلة المنجزة تلقائياً. الآلية نفسها تدعم أمر **Undo**.
 وتُتجاهل الملفات المخفية والنظام والمؤقتة المتبقية عند المسح.
@@ -168,7 +171,7 @@ Get-AuthenticodeSignature .\RandoFile-Setup-<version>-win-x64.exe |
 
 ![RandoFile logo](src/RandoFile.App/Assets/Brand/logo.png)
 
-العلامة ثلاث بطاقات وثائق مصفوفة على شكل مروحة، فوقها قطعة حلقة توحي بحركة العشوائية.
+يتكوّن الشعار من ثلاث بطاقات مستندات مرتبة على شكل مروحة، فوقها قطعة حلقة توحي بحركة العشوائية.
 مستقلة لا تتبع أي بلاطة عامة، فشكلها المميّز يُعرف وحده، وبُنيت عمداً من أجزاء منفصلة —
 تشتق شاشة الافتتاح الأشكال نفسها كمتجهات لتحريكها واحدة تلو الأخرى، ثم تستقر على العلامة
 وتنفّس إلى الأبد.
@@ -193,7 +196,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 المتطلبات: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) وويندوز.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/hm-file-randomizer.git
+git clone https://github.com/hossein-moradi-sci/randofile.git
 cd hm-file-randomizer
 
 dotnet restore RandoFile.sln
@@ -264,7 +267,7 @@ scripts-verify/
 dotnet test RandoFile.sln
 ```
 
-تغطي الحزمة نمط التسمية والمخطّط (كشف التكرار والطباعة واللا فرق) والمنفّذ (التباديل
+تغطي الحزمة نمط التسمية والمخطّط (كشف التكرار والتكرار والاستبدال والحالات التي لا تتطلب تغييراً) والمنفّذ (التباديل
 والدورات والتراجع والإلغاء وUndo وعدم بقاء ملفات مؤقتة) ومسح المجلدات ومقارنة الإصدارات
 لفحص التحديث وتكافؤ الموارد بين اللغات الأربع وقواعد هوية العلامة وربطات XAML.
 
@@ -313,7 +316,7 @@ dotnet test RandoFile.sln
 يحزمه Inno Setup، ثم المثبّت بعده — برنامج موقّع داخل مثبّت غير موقّع لا يجعل التنزيل
 موثوقاً بذاته. وكل توقيع مختوم بالوقت فيبقى صالحاً بعد انتهاء الشهادة.
 
-مستودعان (secret) يفعّلان ذلك (*Settings → Secrets and variables → Actions*):
+سِرّان (Secret) يفعّلان ذلك (*Settings → Secrets and variables → Actions*):
 
 | Secret | القيمة |
 |---|---|
@@ -359,8 +362,8 @@ DigiCert KeyLocker، SSL.com eSigner) فتوقّع بأداة خاصة بها، 
 ## 👤 عن المطوّر
 
 **Hossein Moradi** — HM
-تقني في هندسة القوى الكهربائية
-هندسة الكهرباء القوى · مطوّر تطبيقات ومواقع ويب · مصمم مواقع · إدارة وتخطيط مشاريع
+تقني هندسة كهربائية – قوى
+الهندسة الكهربائية – القوى · مطوّر تطبيقات وبرمجيات ويب · مصمم مواقع · إدارة وتخطيط مشاريع
 
 ---
 
@@ -376,7 +379,7 @@ MIT © 2026 Hossein Moradi — راجع [LICENSE](LICENSE).
 
 <p>إن نفعك RandoFile، فامنح المستودع نجمة ⭐ — تفيد فعلاً.</p>
 
-<p>صُنع ب 💛 بواسطة <b>Hossein Moradi</b></p>
+<p>صُنع بـ 💛 بواسطة <b>Hossein Moradi</b></p>
 
 </div>
 
