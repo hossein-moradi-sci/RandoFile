@@ -629,6 +629,34 @@ public class InstallerScriptTests
     }
 
     [Fact]
+    public void The_release_workflow_never_quotes_a_line_by_itself()
+    {
+        // This shipped broken: inside a YAML block scalar (path: |) quotes are literal, so
+        // "'*.zip'" is a glob for a file whose name starts with an apostrophe. Nothing matched,
+        // the artifact upload failed with "No files were found" and the release never appeared
+        // even though the installer, the zip and every other step of the tag run went green.
+        var workflow = Read("..", ".github", "workflows", "ci.yml");
+        var lines = workflow.Replace("\r\n", "\n").Split('\n');
+
+        var quoted = lines
+            .Select(line => line.Trim())
+            .Where(text => text.Length >= 2 &&
+                           ((text[0] == '\'' && text[text.Length - 1] == '\'') ||
+                            (text[0] == '"' && text[text.Length - 1] == '"')))
+            .ToList();
+
+        Assert.True(
+            quoted.Count == 0,
+            "A line that is nothing but a quoted scalar keeps its quotes inside a block scalar: " +
+            string.Join(", ", quoted));
+
+        // And the upload step still asks for exactly what the release ships.
+        var trimmed = lines.Select(line => line.Trim()).ToList();
+        Assert.Contains("*.zip", trimmed);
+        Assert.Contains("dist/installer/*.exe", trimmed);
+    }
+
+    [Fact]
     public void The_signing_script_runs_on_windows_powershell()
     {
         // Windows PowerShell 5.1 reads a .ps1 as ANSI unless it has a BOM, and that is exactly the

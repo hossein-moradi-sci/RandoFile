@@ -124,8 +124,8 @@ jobs:
         with:
           name: randofile-win-x64
           path: |
-            '*.zip'
-            'dist/installer/*.exe'
+            *.zip
+            dist/installer/*.exe
           if-no-files-found: error
 
       - name: Create GitHub Release
