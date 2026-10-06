@@ -626,6 +626,11 @@ public class InstallerScriptTests
         Assert.Contains("WINDOWS_CERT_PFX_BASE64", readme, StringComparison.Ordinal);
         Assert.Contains("certificates\\code-signing.pfx", readme, StringComparison.Ordinal);
         Assert.Contains("Thumbprint", readme, StringComparison.Ordinal);
+
+        // And users are shown how to check the result themselves: both the graphical path and
+        // the PowerShell command have to stay documented.
+        Assert.Contains("Digital Signatures", readme, StringComparison.Ordinal);
+        Assert.Contains("Get-AuthenticodeSignature", readme, StringComparison.Ordinal);
     }
 
     [Fact]

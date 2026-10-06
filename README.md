@@ -1,23 +1,43 @@
-# RandoFile
+<div align="center">
 
-<img src="src/RandoFile.App/Assets/Brand/logo.png" alt="RandoFile" width="128" align="right" />
+<img src="src/RandoFile.App/Assets/Brand/logo.png" width="128" alt="RandoFile logo" />
 
-**Version:** `v1.0.0` · **License:** MIT · **Creator:** Hossein Moradi
-**Platform:** Windows 10/11 · **Stack:** C# / .NET 8 / WPF
+<h1>🎲 RandoFile</h1>
 
-**RandoFile** — short for *HM File Randomizer* — shuffles every file in a folder into a random order
-and renames it with a clean, predictable naming pattern, with a full preview before anything touches disk.
+<p><b>Shuffle any folder into a truly random order — preview first, rename safely, undo with one click.</b></p>
 
-It ships as a standalone `.exe` and never runs in a browser.
+<p>
+  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/hm-file-randomizer?label=release" alt="Latest release" /></a>
+  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/hm-file-randomizer/total?label=downloads" alt="Downloads" /></a>
+  <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="Windows 10 / 11" />
+  <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
+  <img src="https://img.shields.io/badge/license-MIT-34D058" alt="MIT license" />
+</p>
 
-> The name **RandoFile** is a brand and is never translated. Every language of the interface keeps
-> it exactly as written.
+<p>
+  <a href="README.md"><img src="https://img.shields.io/badge/English-2563EB?style=for-the-badge" alt="English" /></a>
+  <a href="README.fa.md"><img src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-64748B?style=for-the-badge" alt="فارسی" /></a>
+  <a href="README.fr.md"><img src="https://img.shields.io/badge/Fran%C3%A7ais-64748B?style=for-the-badge" alt="Français" /></a>
+  <a href="README.ar.md"><img src="https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-64748B?style=for-the-badge" alt="العربية" /></a>
+</p>
 
-[English](README.md) · [فارسی](#فارسی--persian) · [Français](#français--french) · [العربية](#العربية--arabic)
+</div>
 
 ---
 
-## Features
+**RandoFile** shuffles every file in a folder into a genuinely random order, then renames the
+whole set with a clean, predictable pattern — and shows you a full preview of every old → new name
+before anything touches your disk.
+
+It ships as a single standalone `.exe` for Windows 10/11 and never runs in a browser.
+
+> **RandoFile** is a brand name. It is never translated — every language keeps it exactly as
+> written.
+
+---
+
+## ✨ Features
 
 | | |
 |---|---|
@@ -39,10 +59,11 @@ It ships as a standalone `.exe` and never runs in a browser.
 
 ---
 
-## Download and install
+## ⬇️ Download and install
 
 Grab the latest build from the
-[Releases page](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest).
+[Releases page](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest) —
+two clicks and you are done.
 
 **The installer (recommended)**
 
@@ -73,9 +94,36 @@ run `RandoFile.exe`.
 
 Both are self-contained, so they run on any Windows 10 or 11 machine.
 
+### 🔐 Verify the download
+
+The installer and `RandoFile.exe` (the one inside the portable zip) both carry a digital
+signature, so you can check that a file really came from this project and has not been
+modified. The `.zip` container itself is not signed — extract it first, then check the
+executable.
+
+**Graphically:** right-click the file, choose **Properties**, open the **Digital Signatures**
+tab, select the entry and press **Details**.
+
+**In PowerShell** (swap `<version>` for the release you downloaded, such as `v1.0.0`):
+
+```powershell
+Get-AuthenticodeSignature .\RandoFile-Setup-<version>-win-x64.exe |
+    Format-List Status, @{n='Signer';e={$_.SignerCertificate.Subject}},
+                 @{n='Timestamped';e={$_.TimeStamperCertificate -ne $null}}
+```
+
+What to expect:
+
+- **Signer** — `CN=Hossein Moradi`, the creator of the project.
+- **Timestamped** — `True`, so the signature stays valid after the certificate expires.
+- **Status** — `Valid` means Windows trusts the issuer. Builds signed with the project's own
+  certificate report `UnknownError` instead: signature and timestamp are both intact, but the
+  issuer is not a publicly trusted root, which is exactly what SmartScreen reacts to (see
+  [Code signing](#code-signing)).
+
 ---
 
-## Usage
+## 🚀 Usage
 
 1. **Browse** — pick the folder that holds your files.
 2. **Choose a pattern** — `Image`, `File`, or `Custom` with your own prefix.
@@ -92,7 +140,7 @@ guarantees and the most common questions — in the same four languages as the r
 
 ---
 
-## Naming patterns
+## 🏷️ Naming patterns
 
 | Preset | Result |
 |---|---|
@@ -105,7 +153,7 @@ first file becomes `Image 101.jpg`, the second `Image 102.jpg`, and so on.
 
 ---
 
-## How the rename stays safe
+## 🛡️ How the rename stays safe
 
 Renaming files inside one folder is not a simple one-to-one copy — names can swap with each other,
 or form a cycle (`a → b → c → a`). The engine therefore works in two phases:
@@ -118,7 +166,7 @@ backs the **Undo** command. Hidden, system and leftover temporary files are skip
 
 ---
 
-## The brand assets
+## 🎨 The brand assets
 
 ![RandoFile logo](src/RandoFile.App/Assets/Brand/logo.png)
 
@@ -142,7 +190,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 
 ---
 
-## Building from source
+## 🛠️ Building from source
 
 Requirements: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and Windows.
 
@@ -169,7 +217,7 @@ any Windows 10/11 machine without a .NET runtime.
 
 ---
 
-## Project layout
+## 📁 Project layout
 
 ```
 RandoFile.sln
@@ -213,7 +261,7 @@ The `Core` project has no WPF dependency, which is what makes the rename logic f
 
 ---
 
-## Testing
+## 🧪 Testing
 
 ```powershell
 dotnet test RandoFile.sln
@@ -255,7 +303,7 @@ on a machine that has no certificate at all.
 
 ---
 
-## Versioning and releases
+## 📦 Versioning and releases
 
 The version lives in a single place, [`Directory.Build.props`](Directory.Build.props)
 (`VersionPrefix`) and is surfaced in the UI as `v1.0.0`.
@@ -318,7 +366,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the release history.
 
 ---
 
-## About the creator
+## 👤 About the creator
 
 **Hossein Moradi** — HM
 Electrical Power Engineering Technologist
@@ -326,113 +374,18 @@ Power Electrical Engineering · Software & Web App Developer · Website Designer
 
 ---
 
-## License
+## 📄 License
 
 MIT © 2026 Hossein Moradi — see [LICENSE](LICENSE).
 
----
+<br/>
 
-# فارسی — Persian
+<div align="center">
 
-**نسخه:** `v1.0.0` · **مجوز:** MIT · **سازنده:** حسین مرادی
+<img src="src/RandoFile.App/Assets/Brand/logo-mark.png" width="64" alt="RandoFile" />
 
-**RandoFile** (کوتاه‌شدهٔ *HM File Randomizer*) همهٔ فایل‌های یک پوشه را به‌طور کاملاً تصادفی جابه‌جا می‌کند
-و با یک الگوی نام‌گذاری تمیز و یکسان تغییر نام می‌دهد — و پیش از هر تغییری، پیش‌نمایش کامل را نشان می‌دهد.
+<p>If RandoFile saved you a renaming session, give the repo a star ⭐ — it genuinely helps.</p>
 
-> نام **RandoFile** یک نام برند است و **هرگز ترجمه نمی‌شود**؛ در هر چهار زبان دقیقاً به همین شکل می‌ماند.
+<p>Made with 💛 by <b>Hossein Moradi</b></p>
 
-این برنامه به‌صورت یک فایل `.exe` مستقل اجرا می‌شود و داخل مرورگر اجرا نمی‌شود.
-
-## قابلیت‌ها
-
-- صفحهٔ شروع انیمیشنی با لوگو هنگام باز شدن برنامه
-- انتخاب پوشه به‌همراه نمایش تعداد فایل‌ها
-- جابه‌جایی کاملاً تصادفی (Shuffle) با الگوریتم Fisher–Yates
-- پشتیبانی از هر نوع فایل؛ پسوند اصلی همیشه حفظ می‌شود
-- الگوهای آمادهٔ `Image 1, Image 2 …` و `File 1, File 2 …` و پیشوند دلخواه
-- تنظیم شمارهٔ شروع و تعداد ارقام، مثلاً `Image 007.jpg`
-- پیش‌نمایش کامل نام‌های جدید پیش از تغییر روی دیسک
-- جلوگیری از نام تکراری و بازنویسی فایل موجود
-- موتور تغییر نام دو مرحله‌ای با بازگشت خودکار (Rollback) در صورت خطا
-- امکان Undo برای آخرین اجرای موفق
-- نوار پیشرفت و امکان لغو عملیات
-- چهار زبان: فارسی 🇮🇷، English 🇬🇧، Français 🇫🇷، العربية 🇸🇦 — با چیدمان راست‌به‌چپ
-- پوستهٔ روشن، تاریک یا هم‌رنگ با ویندوز
-- بررسی خودکار نسخهٔ جدید از GitHub Releases
-
-## طراح و سازنده
-
-**حسین مرادی**
-کارشناس ارشد برق
-مهندسی برق قدرت · توسعه‌دهندهٔ نرم‌افزار و وب · طراح وب‌سایت · مدیریت و برنامه‌ریزی پروژه
-
----
-
-# Français — French
-
-**Version :** `v1.0.0` · **Licence :** MIT · **Créateur :** Hossein Moradi
-
-**RandoFile** (raccourci de *HM File Randomizer*) mélange tous les fichiers d'un dossier dans un ordre
-totalement aléatoire, puis les renomme selon un schéma clair et régulier — avec un aperçu complet
-avant toute modification sur le disque.
-
-> Le nom **RandoFile** est une marque : il n'est **jamais traduit** et reste identique dans les quatre langues.
-
-Elle se distribue sous forme d'un fichier `.exe` autonome et ne s'exécute jamais dans un navigateur.
-
-## Fonctionnalités
-
-- Écran de démarrage animé avec le logo
-- Sélection de dossier avec compteur de fichiers en direct
-- Mélange réellement aléatoire (Fisher–Yates)
-- Tous types de fichiers acceptés ; l'extension d'origine est toujours conservée
-- Préréglages `Image 1, Image 2 …` et `File 1, File 2 …`, plus un préfixe personnalisé
-- Numéro de départ et remplissage par des zéros, par exemple `Image 007.jpg`
-- Aperçu de chaque renommage avant exécution
-- Détection des doublons et des écrasements : un plan en conflit est refusé
-- Moteur de renommage en deux phases avec annulation automatique (rollback)
-- Commande **Annuler** pour revenir sur le dernier traitement réussi
-- Barre de progression et possibilité d'interrompre l'opération
-- Quatre langues : فارسی, English, Français, العربية — avec mise en page RTL pour le persan et l'arabe
-- Thèmes clair, sombre ou système
-- Vérification des nouvelles versions via GitHub Releases
-
-## Créateur
-
-**Hossein Moradi** — Technologue en génie électrique de puissance
-Génie électrique de puissance · Développeur logiciel et web · Concepteur de sites · Gestion et planification de projets
-
----
-
-# العربية — Arabic
-
-**الإصدار:** `v1.0.0` · **الترخيص:** MIT · **المطوّر:** Hossein Moradi
-
-**RandoFile** (اختصارًا لـ *HM File Randomizer*) يخلط ملفات المجلد ترتيبًا عشوائيًا بالكامل ثم يعيد
-تسميتها بنمط واضح ومنسّق — مع معاينة كاملة قبل أي تعديل على القرص.
-
-> اسم **RandoFile** علامة تجارية، وهو **لا يُترجم أبدًا** ويبقى كما هو في اللغات الأربع.
-
-يُوزَّع التطبيق كملف `.exe` مستقل، ولا يعمل داخل المتصفح إطلاقًا.
-
-## المزايا
-
-- شاشة بدء متحركة مع الشعار
-- اختيار مجلد مع إظهار عدد الملفات مباشرةً
-- خلط عشوائي حقيقي (Fisher–Yates)
-- دعم جميع أنواع الملفات؛ يُحتفظ بالامتداد الأصلي دائمًا
-- أنماط جاهزة `Image 1, Image 2 …` و`File 1, File 2 …` مع بادئة مخصّصة
-- رقم بداية اختياري مع أصفار بادئة، مثل `Image 007.jpg`
-- معاينة لكل عملية إعادة تسمية قبل تنفيذها
-- كشف التكرار والكتابة فوق الملفات الموجودة ورفض الخطة غير الآمنة
-- محرّك إعادة تسمية على مرحلتين مع تراجع تلقائي عند حدوث خطأ
-- زر **تراجع** لإرجاع آخر عملية ناجحة
-- شريط تقدّم مع إمكانية إلغاء العملية
-- أربع لغات: فارسی، English، Français، العربية — مع تخطيط من اليمين إلى اليسار
-- سمات فاتحة وداكنة أو تتبع النظام
-- فحص الإصدارات الجديدة عبر GitHub Releases
-
-## المطوّر
-
-**Hossein Moradi** — تقني هندسة الكهرباء الصناعية
-هندسة الكهرباء · مطوّر برمجيات ومواقع · مصمم مواقع · إدارة وتخطيط المشاريع
+</div>
