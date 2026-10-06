@@ -9,32 +9,33 @@
 <p><b>هر پوشه را در یک ترتیب کاملاً تصادفی به‌هم می‌ریزد — اول پیش‌نمایش، بعد تغییر نام مطمئن، و با یک کلیک بازگرداندن.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/hm-file-randomizer?label=release" alt="آخرین نسخه" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/hm-file-randomizer/total?label=downloads" alt="دانلودها" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="آخرین نسخه" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="دانلودها" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="ویندوز ۱۰ و ۱۱" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="مجوز MIT" />
 </p>
 
-<p>
-  <a href="README.md"><img src="https://img.shields.io/badge/English-64748B?style=for-the-badge" alt="English" /></a>
-  <a href="README.fa.md"><img src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-2563EB?style=for-the-badge" alt="فارسی" /></a>
-  <a href="README.fr.md"><img src="https://img.shields.io/badge/Fran%C3%A7ais-64748B?style=for-the-badge" alt="Français" /></a>
-  <a href="README.ar.md"><img src="https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-64748B?style=for-the-badge" alt="العربية" /></a>
+<p align="center">
+  <a href="README.md"><strong>ENGLISH</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fa.md"><strong>فارسی</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fr.md"><strong>FRANÇAIS</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.ar.md"><strong>العربية</strong></a>
 </p>
 
 </div>
 
 ---
 
-**RandoFile** تک‌تک فایل‌های یک پوشه را با یک قرعه‌کشی واقعی به‌هم می‌ریزد، بعد کل مجموعه را با یک الگوی تمیز و قابل پیش‌بینی دوباره نام‌گذاری می‌کند — و پیش از آن‌که حتی یک نام روی دیسکت عوض شود، کامل‌ترین پیش‌نمایش «نام قدیمی ← نام جدید» را جلوی چشمت می‌گذارد.
+**RandoFile** تک‌تک فایل‌های یک پوشه را به‌صورت واقعاً تصادفی به‌هم می‌ریزد، بعد کل مجموعه را با یک الگوی تمیز و قابل پیش‌بینی دوباره نام‌گذاری می‌کند — و پیش از آن‌که حتی یک نام روی دیسکت عوض شود، پیش‌نمایش کامل «نام قدیمی ← نام جدید» را جلوی چشمت می‌گذارد.
 
 یک فایل `.exe` مستقل و تک‌فایلی برای ویندوز ۱۰ و ۱۱ است و هیچ‌وقت در مرورگر اجرا نمی‌شود.
 
 > **RandoFile** یک نام تجاری است و هرگز ترجمه نمی‌شود — در هر زبانی دقیقاً همین‌طور نوشته می‌شود.
-
-> 💛 این نسخه فارسی از اول به‌صورت طبیعی به فارسی نوشته شده، نه ترجمه لفظ‌به‌لفت انگلیسی؛ همان عمقِ نسخه انگلیسی را دارد و روان خوانده می‌شود.
 
 ---
 
@@ -48,12 +49,12 @@
 | **الگوهای آماده نام‌گذاری** | `Image 1, Image 2 …`، `File 1, File 2 …` یا پیشوند دلخواه خودتان. |
 | **کنترل شماره‌گذاری** | شماره شروع و صفرگذاری اختیاری، مثلاً `Image 007.jpg`. |
 | **پیش‌نمایش قبل از تغییر نام** | هر جفت «قدیمی ← جدید» فهرست می‌شود، همراه با خلاصه زنده تغییرات. |
-| **محافظ تکراری و بازنویسی** | اگر طرحِ نام‌گذاری شامل تداخل باشد رد می‌شود؛ هیچ فایلی تغییر نمی‌کند. |
-| **موتور امن** | تغییر نام دومرحله‌ای (مرحله‌بندی ← اجرا) تا جابه‌جایی نام‌ها و چرخه‌های نامی هم درست کار کنند. |
+| **جلوگیری از نام‌های تکراری و بازنویسی** | اگر طرحِ نام‌گذاری شامل تداخل باشد رد می‌شود؛ هیچ فایلی تغییر نمی‌کند. |
+| **موتور امن** | تغییر نام دومرحله‌ای (آماده‌سازی ← اعمال تغییرات) تا جابه‌جایی نام‌ها و چرخه‌های نامی هم درست کار کنند. |
 | **بازگردانی خودکار** | اگر سر راه فایلی شکست بخورد، همه تغییرات انجام‌شده برمی‌گردند. |
 | **واگردانی (Undo)** | یک کلیک، آخرین اجرا را به حالت اول برمی‌گرداند. |
 | **پیشرفت و لغو** | نوار پیشرفت و دکمه‌ای برای لغو که همه‌چیز را تمیز به عقب برمی‌گرداند. |
-| **اسپلش متحرک** | چهار و نیم ثانیه آغازین: قطعه‌های لوگو کنار هم می‌نشینند، با اندکی اشاره بیش از حد جا می‌افتند، بعد برنامه نفس می‌کشد و نشان اعتبار نئونی زیرش آرام روشن می‌شود. |
+| **صفحه آغازین متحرک** | چهار و نیم ثانیه آغازین: قطعه‌های لوگو کنار هم می‌نشینند، با اندکی اشاره بیش از حد جا می‌افتند، بعد برنامه نفس می‌کشد و نشان اعتباری نئونی زیرش آرام روشن می‌شود. |
 | **چهار زبان** | فارسی · English · Français · العربية، با چیدمان کامل راست‌به‌چپ برای فارسی و عربی. |
 | **پوسته‌ها** | روشن، تاریک، یا همراه با تنظیمات خود ویندوز. |
 | **بررسی به‌روزرسانی** | نسخه‌ها را از GitHub Releases می‌خواند و اگر نسخه تازه‌تری آمده باشد بنر نشان می‌دهد. |
@@ -63,7 +64,7 @@
 ## ⬇️ دانلود و نصب
 
 آخرین نسخه را از
-[صفحه Releases](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest)
+[صفحه Releases](https://github.com/hossein-moradi-sci/randofile/releases/latest)
 بردارید — دو کلیک و تمام.
 
 **نصب‌کننده (پیشنهادی)**
@@ -171,7 +172,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 پیش‌نیازها: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) و ویندوز.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/hm-file-randomizer.git
+git clone https://github.com/hossein-moradi-sci/randofile.git
 cd hm-file-randomizer
 
 dotnet restore RandoFile.sln
@@ -213,7 +214,7 @@ src/
     Resources/Help/              Mockups.xaml (تصاویر برداری راهنمای درون‌برنامه‌ای)
     Assets/Brand/                لوگو و آیکون ویندوز
 tests/
-  RandoFile.Tests/               مجموعه xUnit برای موتور، برند، منابع و bindingهای XAML
+  RandoFile.Tests/               مجموعه xUnit برای موتور، برند، منابع و اتصال‌های XAML
 installer/
   randofile.iss                  اسکریپت Inno Setup: نصب‌کننده‌ای که کاربران دانلود می‌کنند
   license.txt                    قرارداد، به انگلیسی
@@ -242,9 +243,9 @@ scripts-verify/
 dotnet test RandoFile.sln
 ```
 
-مجموعه تست، الگوی نام‌گذاری، برنامه‌ریز (تشخیص تکراری، بازنویسی، بی‌اثر) و اجراکننده (جابه‌جایی‌ها، چرخه‌ها، بازگردانی، لغو، Undo، نبودن فایل موقت باقی‌مانده) را پوشش می‌دهد، به‌علاوه پویش پوشه، مقایسه نسخه برای بررسی به‌روزرسانی، هم‌ارزی منابع در همه چهار زبان، قواعد هویت برند و bindingهای XAML.
+مجموعه تست، الگوی نام‌گذاری، برنامه‌ریز (تشخیص تکراری، بازنویسی، بی‌اثر) و اجراکننده (جابه‌جایی‌ها، چرخه‌ها، بازگردانی، لغو، Undo، نبودن فایل موقت باقی‌مانده) را پوشش می‌دهد، به‌علاوه پویش پوشه، مقایسه نسخه برای بررسی به‌روزرسانی، یکسان بودن منابع ترجمه در هر چهار زبان، قواعد هویت برند و اتصال‌های XAML.
 
-بعضی از این نگهبان‌ها به خاطر باگ‌هایی نوشته شده‌اند که به نسخه منتشرشده رسیده بودند:
+بعضی از این تست‌ها به خاطر باگ‌هایی نوشته شده‌اند که به نسخه منتشرشده رسیده بودند:
 
 - **بایند دوطرفه به خصوصیات فقط‌خواندنی.** WPF خصوصیاتی مثل `ProgressBar.Value`، `TextBox.Text` و `ToggleButton.IsChecked` را به‌صورت پیش‌فرض *دوطرفه* بایند می‌کند؛ پس اگر به خصوصیت محاسبشده‌ای در ViewModel وصلشان کنید، همان لحظه اولین چیدمان پنجره استثنا می‌دهد — برنامه به‌جای باز شدن دیالوگ «Problem» نشان می‌دهد. هر بایند جدید روی این خصوصیات باید `Mode=OneWay` صریح یا setter عمومی داشته باشد.
 - **برند نباید به فایل‌های زبان راه پیدا کند.** `BrandIdentityTests` اگر «RandoFile» در مقداری از `Strings.*.xaml` بیاید شکست می‌خورد، چون آن‌وقت یک مترجم می‌تواند نامش را عوض کند یا حذفش کند.
