@@ -7,19 +7,22 @@
 <p><b>Shuffle any folder into a truly random order — preview first, rename safely, undo with one click.</b></p>
 
 <p>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/hm-file-randomizer/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/hm-file-randomizer?label=release" alt="Latest release" /></a>
-  <a href="https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/hm-file-randomizer/total?label=downloads" alt="Downloads" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml"><img src="https://github.com/hossein-moradi-sci/randofile/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/v/release/hossein-moradi-sci/randofile?label=release" alt="Latest release" /></a>
+  <a href="https://github.com/hossein-moradi-sci/randofile/releases/latest"><img src="https://img.shields.io/github/downloads/hossein-moradi-sci/randofile/total?label=downloads" alt="Downloads" /></a>
   <img src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4" alt="Windows 10 / 11" />
   <img src="https://img.shields.io/badge/.NET-8.0-512BD4" alt=".NET 8" />
   <img src="https://img.shields.io/badge/license-MIT-34D058" alt="MIT license" />
 </p>
 
-<p>
-  <a href="README.md"><img src="https://img.shields.io/badge/English-2563EB?style=for-the-badge" alt="English" /></a>
-  <a href="README.fa.md"><img src="https://img.shields.io/badge/%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-64748B?style=for-the-badge" alt="فارسی" /></a>
-  <a href="README.fr.md"><img src="https://img.shields.io/badge/Fran%C3%A7ais-64748B?style=for-the-badge" alt="Français" /></a>
-  <a href="README.ar.md"><img src="https://img.shields.io/badge/%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-64748B?style=for-the-badge" alt="العربية" /></a>
+<p align="center">
+  <a href="README.md"><strong>ENGLISH</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fa.md"><strong>فارسی</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.fr.md"><strong>FRANÇAIS</strong></a>
+  &nbsp;•&nbsp;
+  <a href="README.ar.md"><strong>العربية</strong></a>
 </p>
 
 </div>
@@ -62,7 +65,7 @@ It ships as a single standalone `.exe` for Windows 10/11 and never runs in a bro
 ## ⬇️ Download and install
 
 Grab the latest build from the
-[Releases page](https://github.com/hossein-moradi-sci/hm-file-randomizer/releases/latest) —
+[Releases page](https://github.com/hossein-moradi-sci/randofile/releases/latest) —
 two clicks and you are done.
 
 **The installer (recommended)**
@@ -195,7 +198,7 @@ powershell -ExecutionPolicy Bypass -File tools/Generate-Logo.ps1
 Requirements: [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and Windows.
 
 ```powershell
-git clone https://github.com/hossein-moradi-sci/hm-file-randomizer.git
+git clone https://github.com/hossein-moradi-sci/randofile.git
 cd hm-file-randomizer
 
 dotnet restore RandoFile.sln
